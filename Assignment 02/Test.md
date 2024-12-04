@@ -64,8 +64,7 @@ Test the user login process to ensure users can log in successfully and are redi
    - The user is redirected to the login page (`/login`).
 ---
 
-### Code Implementation
-
+## Chai.js Code:
 ```javascript
 const chai = require('chai');
 const expect = chai.expect;
@@ -112,8 +111,7 @@ Test the event and movie management functionality to ensure that events and movi
 
 ---
 
-### Code Implementation
-
+## Chai.js Code:
 ```javascript
 const chai = require('chai');
 const expect = chai.expect;
@@ -176,8 +174,7 @@ Test the ticket booking functionality to ensure users can successfully book tick
 
 ---
 
-### Code Implementation
-
+## Chai.js Code:
 ```javascript
 const chai = require('chai');
 const expect = chai.expect;
@@ -223,7 +220,7 @@ Test the payment process to ensure users can successfully complete their payment
 
 ---
 
-### Code Implementation
+## Chai.js Code:
 
 ```javascript
 const chai = require('chai');
@@ -267,7 +264,7 @@ Test the cancellation and refund process to ensure users are properly refunded b
 
 ---
 
-### Code Implementation
+## Chai.js Code:
 
 ```javascript
 const chai = require('chai');
@@ -319,7 +316,7 @@ Test the profile update functionality to ensure users can modify their profile d
 
 ---
 
-### Code Implementation
+## Chai.js Code:
 
 ```javascript
 const chai = require('chai');
@@ -340,3 +337,5 @@ describe('BookMyShow User Profile Management', function() {
   });
 });
 ```
+
+
