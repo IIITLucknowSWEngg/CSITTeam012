@@ -181,6 +181,16 @@ This diagram outlines the payment process flow. It highlights the steps users fo
 ![Payment Process](https://github.com/user-attachments/assets/69b93770-5251-44e1-a16d-df12707914ef)
 
 ---
+
+**UML Diagram:**
+![Registration](https://raw.githubusercontent.com/IIITLucknowSWEngg/CSITTeam012/refs/heads/main/Assignment%2002/Diagrams/Activity_registered_user.png)
+
+
+
+
+---
+
+
 ### PlantUML Code
 
 ```plantuml
