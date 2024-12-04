@@ -592,40 +592,43 @@ Monitoring --> Dashboard : Visualize Metrics
 ---
 ## 5. Database Design
 
+## Database Design for BookMyShow Clone
+
 The BookMyShow clone uses a combination of SQL and NoSQL databases. Below is the schema for major entities:
 
-- **Users**: Stores user information like username, email, and preferences.
-- **Events**: Stores event details, such as name, date, venue, and ticket availability.
-- **Bookings**: Stores booking information, including seat selection and payment status.
-- **Playlists**: Stores playlist information, including user-created playlists and shared playlists.
-- **Comments**: Stores user comments and feedback for events and movies.
-- **Interactions**: Tracks likes, views, and shares related to events and movies.
-- **Subscriptions**: Tracks user subscriptions to events or premium features.
+- **Users**: Stores user information like username, email, and preferences.  
+- **Events**: Stores event details, such as name, date, venue, and ticket availability.  
+- **Bookings**: Stores booking information, including seat selection and payment status.  
+- **Comments**: Stores user comments and feedback for events and movies.  
+- **Interactions**: Tracks likes, views, and shares related to events and movies.  
+- **Subscriptions**: Tracks user subscriptions to events or premium features.  
 
 ![Database Design](./bookmyshow_database_design.png)
+
+---
+
+### PlantUML Code
 
 ```plantuml
 @startuml
 !define DARKBLUE
 !includeurl https://raw.githubusercontent.com/Argonaut-B04/PlantUML-style-C4/master/style.puml
+
+title BookMyShow Clone - Use Case Diagram
+
 // Event Interaction Use Cases
 usecase "Browse Events" as BrowseEvents
 usecase "Book Ticket" as BookTicket
 usecase "Leave Feedback" as LeaveFeedback
-
-// Playlist Interaction Use Cases
-usecase "Create Playlist" as CreatePlaylist
-usecase "Add Event to Playlist" as AddToPlaylist
-usecase "Remove Event from Playlist" as RemoveFromPlaylist
 
 // Search and Discovery
 usecase "Search Events" as SearchEvents
 usecase "Recommended Events" as Recommendations
 usecase "Browse Genres" as BrowseGenres
 
-// Monetization
-usecase "Enable Monetization" as Monetize
-usecase "View Earnings" as ViewEarnings
+// Subscriptions and Notifications
+usecase "Subscribe to Notifications" as Subscribe
+usecase "Manage Subscriptions" as ManageSubscriptions
 
 // Admin Use Cases
 usecase "Content Moderation" as Moderation
@@ -643,19 +646,15 @@ User --> BrowseEvents
 User --> BookTicket
 User --> LeaveFeedback
 User --> SearchEvents
-User --> CreatePlaylist
-User --> AddToPlaylist
-User --> RemoveFromPlaylist
 User --> Recommendations
+User --> Subscribe
+User --> ManageSubscriptions
 User --> ManageProfile
 
 Creator --> CreateEvent
 Creator --> EditEvent
 Creator --> DeleteEvent
-Creator --> CreatePlaylist
 Creator --> BrowseGenres
-Creator --> Monetize
-Creator --> ViewEarnings
 
 Admin --> Moderation
 Admin --> UserManagement
