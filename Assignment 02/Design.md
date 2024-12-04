@@ -180,17 +180,10 @@ This diagram outlines the payment process flow. It highlights the steps users fo
 **UML Diagram:**  
 ![Payment Process](https://github.com/user-attachments/assets/69b93770-5251-44e1-a16d-df12707914ef)
 
----
-
-**UML Diagram:**
-![Registration](https://raw.githubusercontent.com/IIITLucknowSWEngg/CSITTeam012/refs/heads/main/Assignment%2002/Diagrams/Activity_registered_user.png)
-
-
-
 
 ---
 
-
+<!--  -->
 ### PlantUML Code
 
 ```plantuml
@@ -210,8 +203,87 @@ stop
 @enduml
 
 ```
+
+
 ---
-#### **3.2.4 Real-time Seat Booking Status Update**  
+
+
+### **3.2.4 Registration Process**
+
+This diagram illustrates the registration process for new users. It includes steps like account creation, email verification, and setting up user preferences. The diagram also covers scenarios where the email is already registered or the verification link is expired.
+
+
+
+
+**UML Diagram:**
+
+
+![Registration](https://raw.githubusercontent.com/IIITLucknowSWEngg/CSITTeam012/refs/heads/main/Assignment%2002/Diagrams/Activity_registered_user.png)
+
+
+### PlantUML Code
+<!--  -->
+```plantuml
+@startuml
+@startuml Activity_Registered
+actor User
+participant "BookMyShow App" as BMSApp
+participant "Auth Service" as Auth
+@@ -11,12 +11,12 @@ participant "Ticketing System" as Ticketing
+User -> BMSApp: Open App
+BMSApp -> Auth: Check if User is logged in
+alt User Not Logged In
+    BMSApp -> User: Show login or registration screen
+    User -> BMSApp: Login or Register
+    BMSApp -> Auth: Authenticate user
+    Auth -> BMSApp: User logged in successfully
+BMSApp -> User: Show login or registration screen
+User -> BMSApp: Login or Register
+BMSApp -> Auth: Authenticate user
+Auth -> BMSApp: User logged in successfully
+else User Logged In
+    Auth -> BMSApp: User is already logged in
+Auth -> BMSApp: User is already logged in
+end
+BMSApp -> User: Prompt to input current location
+@@ -33,13 +33,13 @@ Movie -> BMSApp: Return movie details and showtimes
+User -> BMSApp: Select date and time
+alt Showtimes Available
+    BMSApp -> Ticketing: Check seat availability
+    Ticketing -> BMSApp: Seats available
+BMSApp -> Ticketing: Check seat availability
+Ticketing -> BMSApp: Seats available
+else Showtimes Not Available
+    BMSApp -> User: Prompt user to select another date
+    User -> BMSApp: Select other date
+    BMSApp -> Movie: Fetch movie details and showtimes for new date
+    Movie -> BMSApp: Return new showtimes
+BMSApp -> User: Prompt user to select another date
+User -> BMSApp: Select other date
+BMSApp -> Movie: Fetch movie details and showtimes for new date
+Movie -> BMSApp: Return new showtimes
+end
+User -> BMSApp: Select theater and seats
+@@ -51,12 +51,16 @@ BMSApp -> Payment: Initialize payment
+Payment -> Payment: Process payment
+Payment -> BMSApp: Payment successful
+alt Payment Failed
+    BMSApp -> User: Payment failed, retry or select another payment method
+BMSApp -> User: Payment failed, retry or select another payment method
+else
+    BMSApp -> Ticketing: Confirm booking and issue tickets
+    Ticketing -> BMSApp: Booking confirmed, generate ticket
+    BMSApp -> User: Show booking confirmation and ticket details
+BMSApp -> Ticketing: Confirm booking and issue tickets
+Ticketing -> BMSApp: Booking confirmed, generate ticket
+BMSApp -> User: Show booking confirmation and ticket details
+end
+@enduml
+
+```
+
+---
+#### **3.2.5 Real-time Seat Booking Status Update**  
 This diagram explains the real-time mechanism for seat availability updates. It depicts how a user queries seat status and how the backend processes and returns real-time updates.  
 
 **UML Diagram:**  
@@ -236,7 +308,7 @@ stop
 
 ```
 ---
-#### **3.2.5 Personalized Event Recommendations**  
+#### **3.2.6 Personalized Event Recommendations**  
 This diagram showcases the process for generating personalized event recommendations. It demonstrates how user preferences and behavior are analyzed to suggest tailored events or movies.  
 
 **UML Diagram:**  
