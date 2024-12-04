@@ -1,9 +1,35 @@
-# Stakeholder Register for Book My Show Clone
+# Stakeholder Register for BookMyShow Clone
 
 ## Introduction
 
-This document serves as a comprehensive **Stakeholder Register** for the **Book My Show Clone** project, outlining the various stakeholders involved in its development and operation. Each stakeholder plays a crucial role in shaping the platform's functionality and user experience, making it essential to understand their interests, responsibilities, and potential impact on the project's success. Stakeholders are classified into **internal** and **external** categories to illustrate their direct influence and engagement with the platform. By identifying and analyzing these stakeholders, we aim to foster effective communication, collaboration, and alignment of goals, ultimately ensuring that the website meets the diverse needs of its users and achieves its strategic objectives.
+This document serves as a comprehensive **Stakeholder Register** for the **Book My Show Clone** project, outlining the various stakeholders involved in its development and operation. Each stakeholder plays a crucial role in shaping the platform's functionality and user experience, making it essential to understand their interests, responsibilities, and potential impact on the project's success. Stakeholders are classified into **internal** and **external** categories to illustrate their direct influence and engagement with the platform. 
 
+---
+
+## Stakeholder Register Table: (Internal & External)
+
+| **Stakeholder**                | **Role**                                                                      | **Responsibilities**                                                                                            | **Influence** | **Interest** | **Category** |
+|--------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------------|--------------|--------------|
+| **Software Development Team**   | Develop, build, and maintain the core platform.                              | Implement new features, maintain code quality, fix bugs, resolve issues.                                     | High          | High         | Internal      |
+| **Product Managers**            | Define the product vision and manage the development roadmap.                 | Prioritize features, align goals with business objectives, communicate requirements.                           | High          | High         | Internal      |
+| **UI/UX Designers**             | Ensure a seamless, user-friendly experience.                                  | Design intuitive interfaces, optimize user interactions, conduct user research.                               | Medium        | High         | Internal      |
+| **Quality Assurance (QA) Team** | Test and validate platform functionality and performance.                     | Perform testing, report bugs, ensure quality standards, conduct regression testing.                            | Medium        | High         | Internal      |
+| **DevOps Engineers**            | Manage cloud infrastructure and deployment pipelines.                         | Ensure reliability, automate deployment, handle traffic scaling.                                             | High          | Medium       | Internal      |
+| **Data Analysts and Scientists**| Analyze user behavior and system performance.                                 | Generate insights, assist in recommendations, support data-driven decisions.                                   | Medium        | High         | Internal      |
+| **Cybersecurity Team**         | Ensure platform and data security.                                           | Implement security measures, monitor vulnerabilities, ensure compliance with regulations.                      | High          | Medium       | Internal      |
+| **System Architects**          | Design high-level architecture of the platform.                               | Ensure scalability, select technologies, define best practices.                                               | High          | Medium       | Internal      |
+| **Customer Support Team**      | Provide technical support to users.                                          | Troubleshoot issues, escalate complex problems, handle customer complaints.                                    | Medium        | High         | Internal      |
+| **Market Analysts**            | Analyze market trends to guide strategic decisions.                           | Conduct research, analyze competitor strategies, assist in pricing strategies.                                  | Medium        | High         | Internal      |
+| **Partnership Managers**       | Build and maintain relationships with external partners.                      | Manage partnerships, negotiate contracts, foster long-term relationships.                                      | Medium        | High         | Internal      |
+| **Marketing and Growth Team**  | Promote the platform and attract new users.                                   | Run digital campaigns, monitor metrics, analyze marketing strategies.                                          | High          | High         | Internal      |
+| **Legal and Compliance Team**  | Ensure platform compliance with laws and regulations.                         | Review contracts, ensure adherence to laws, handle legal disputes.                                            | High          | Medium       | Internal      |
+| **Accessibility Team**         | Ensure platform accessibility for all users.                                  | Implement accessibility features, ensure compliance with guidelines, test for barriers.                        | Medium        | High         | Internal      |
+| **Data Privacy Officer**       | Oversee handling of user data and compliance with privacy laws.              | Ensure compliance with data laws, handle user requests, conduct audits.                                       | High          | Medium       | Internal      |
+| **API Integration Partners**    | Integrate third-party systems with the platform.                             | Manage API integration, maintain updates, ensure reliable communication.                                       | Medium        | Medium       | External      |
+| **Customers**                  | End-users who book tickets for events.                                       | Use platform to search and book tickets, provide feedback, participate in surveys.                             | Medium        | High         | External      |
+| **Event Organizers and Venue Owners** | Provide and manage events listed on the platform.                       | List events, manage bookings, coordinate promotions.                                                           | High          | High         | External      |
+| **Regulators**                 | Ensure compliance with legal and regulatory requirements.                    | Monitor compliance with data privacy laws, oversee financial regulations.                                       | High          | Medium       | External      |
+| **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       | External      |
 
 ---
 
@@ -107,7 +133,7 @@ This document serves as a comprehensive **Stakeholder Register** for the **Book 
   - Assist in optimizing pricing strategies and identifying growth opportunities.
 - **Influence:** Medium
 - **Interest:** High
-- **Category:** Internal (if in-house) or External (if outsourced)
+- **Category:** External
 
 ### 11. Partnership Managers
 - **Role:** Build and maintain relationships with external event organizers and partners.
@@ -212,32 +238,6 @@ This document serves as a comprehensive **Stakeholder Register** for the **Book 
 - **Influence:** Medium
 - **Interest:** Medium
 - **Category:** External
-
----
-## Stakeholder Register Table
-
-| **Stakeholder**                | **Role**                                                                      | **Responsibilities**                                                                                            | **Influence** | **Interest** | **Category** |
-|--------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------------|--------------|--------------|
-| **Software Development Team**   | Develop, build, and maintain the core platform.                              | Implement new features, maintain code quality, fix bugs, resolve issues.                                     | High          | High         | Internal      |
-| **Product Managers**            | Define the product vision and manage the development roadmap.                 | Prioritize features, align goals with business objectives, communicate requirements.                           | High          | High         | Internal      |
-| **UI/UX Designers**             | Ensure a seamless, user-friendly experience.                                  | Design intuitive interfaces, optimize user interactions, conduct user research.                               | Medium        | High         | Internal      |
-| **Quality Assurance (QA) Team** | Test and validate platform functionality and performance.                     | Perform testing, report bugs, ensure quality standards, conduct regression testing.                            | Medium        | High         | Internal      |
-| **DevOps Engineers**            | Manage cloud infrastructure and deployment pipelines.                         | Ensure reliability, automate deployment, handle traffic scaling.                                             | High          | Medium       | Internal      |
-| **Data Analysts and Scientists**| Analyze user behavior and system performance.                                 | Generate insights, assist in recommendations, support data-driven decisions.                                   | Medium        | High         | Internal      |
-| **Cybersecurity Team**         | Ensure platform and data security.                                           | Implement security measures, monitor vulnerabilities, ensure compliance with regulations.                      | High          | Medium       | Internal      |
-| **System Architects**          | Design high-level architecture of the platform.                               | Ensure scalability, select technologies, define best practices.                                               | High          | Medium       | Internal      |
-| **Customer Support Team**      | Provide technical support to users.                                          | Troubleshoot issues, escalate complex problems, handle customer complaints.                                    | Medium        | High         | Internal      |
-| **Market Analysts**            | Analyze market trends to guide strategic decisions.                           | Conduct research, analyze competitor strategies, assist in pricing strategies.                                  | Medium        | High         | Internal      |
-| **Partnership Managers**       | Build and maintain relationships with external partners.                      | Manage partnerships, negotiate contracts, foster long-term relationships.                                      | Medium        | High         | Internal      |
-| **Marketing and Growth Team**  | Promote the platform and attract new users.                                   | Run digital campaigns, monitor metrics, analyze marketing strategies.                                          | High          | High         | Internal      |
-| **Legal and Compliance Team**  | Ensure platform compliance with laws and regulations.                         | Review contracts, ensure adherence to laws, handle legal disputes.                                            | High          | Medium       | Internal      |
-| **Accessibility Team**         | Ensure platform accessibility for all users.                                  | Implement accessibility features, ensure compliance with guidelines, test for barriers.                        | Medium        | High         | Internal      |
-| **Data Privacy Officer**       | Oversee handling of user data and compliance with privacy laws.              | Ensure compliance with data laws, handle user requests, conduct audits.                                       | High          | Medium       | Internal      |
-| **API Integration Partners**    | Integrate third-party systems with the platform.                             | Manage API integration, maintain updates, ensure reliable communication.                                       | Medium        | Medium       | External      |
-| **Customers**                  | End-users who book tickets for events.                                       | Use platform to search and book tickets, provide feedback, participate in surveys.                             | Medium        | High         | External      |
-| **Event Organizers and Venue Owners** | Provide and manage events listed on the platform.                       | List events, manage bookings, coordinate promotions.                                                           | High          | High         | External      |
-| **Regulators**                 | Ensure compliance with legal and regulatory requirements.                    | Monitor compliance with data privacy laws, oversee financial regulations.                                       | High          | Medium       | External      |
-| **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       | External      |
 
 --------
 ## Conclusion
