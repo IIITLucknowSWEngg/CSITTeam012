@@ -158,6 +158,7 @@ This diagram showcases the process for generating personalized event recommendat
 ## 4. Module Design
 
 ### 4.1 Frontend Architecture
+![image](https://github.com/user-attachments/assets/0301a54c-8293-475d-8d8d-42539894db38)
 
 ```plantuml
 @startuml
@@ -746,6 +747,7 @@ end note
 
 ## 6.3 Notification Flow Diagram
 This diagram represents the flow of notifications for events like new comments or event updates.
+![image](https://github.com/user-attachments/assets/cb783888-4e54-495d-90e1-7d339c2f9958)
 
 ```plantuml
 @startuml
