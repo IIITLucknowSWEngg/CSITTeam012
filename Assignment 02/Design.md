@@ -220,6 +220,7 @@ This diagram illustrates the registration process for new users. It includes ste
 
 ![Registration](https://raw.githubusercontent.com/IIITLucknowSWEngg/CSITTeam012/refs/heads/main/Assignment%2002/Diagrams/Activity_registered_user.png)
 
+---
 
 ### PlantUML Code
 <!--  -->
