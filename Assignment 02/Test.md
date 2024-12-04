@@ -76,7 +76,7 @@ describe('BookMyShow User Login', function() {
     loginPage.open();
     loginPage.enterCredentials('priyanshu@example.com', 'password123');
     loginPage.submitLogin();
-    expect(loginPage.getWelcomeMessage()).to.include('Welcome, John Doe');
+    expect(loginPage.getWelcomeMessage()).to.include('Welcome, Priyanshu Agarwal');
     expect(browser.getUrl()).to.include('/dashboard');
   });
 });
@@ -132,7 +132,7 @@ describe('BookMyShow Event and Movie Management', function() {
 
   it('should display accurate movie schedules and seat availability', function() {
     moviePage.open();
-    moviePage.searchMovie('Avengers: Endgame');
+    moviePage.searchMovie('Pushpa 2');
     moviePage.selectShowtime('7:00 PM');
     const availableSeats = moviePage.getAvailableSeats('7:00 PM');
     expect(availableSeats).to.be.greaterThan(0);
@@ -330,11 +330,11 @@ describe('BookMyShow User Profile Management', function() {
   it('should update user profile successfully', function() {
     profilePage.open();
     profilePage.updateProfile({
-      email: 'johnupdated@example.com',
+      email: 'priyanshu@example.com',
       password: 'newSecurePassword123',
-      firstName: 'John',
+      firstName: 'Priyanshu',
       lastName: 'Updated',
-      address: '123 New Street, Cityville, Country'
+      address: '123 New Street, Uttar Pradesh, India'
     });
     expect(profilePage.getSuccessMessage()).to.equal('Profile updated successfully');
   });
