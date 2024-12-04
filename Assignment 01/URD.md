@@ -11,7 +11,6 @@ This document outlines the user requirements for the **BookMyShow** platform. It
 - [1. User Stories](#1-user-stories)
 - [2. Use Cases](#2-use-cases)
 - [3. User Interface Requirements](#3-user-interface-requirements)
-- [4. Cross-Reference Matrix](#4-detailed-cross-reference-matrix)
 
 ---
 
@@ -300,29 +299,6 @@ Below are detailed use cases describing how the platform meets user goals.
   - Push notifications for booking confirmations, event reminders, and promotional offers.
   - Alerts for any changes to booked events (e.g., venue or timing updates).
   - Settings for users to customize notification preferences.
-
----
-
-## 4. Detailed Cross-Reference Matrix
-
-## **Key Features**
-- Movie selection
-- Theatre and seat booking
-- Payment gateway
-- Ticket generation
-- User reviews and ratings
-- Notifications and reminders
-
----
-
-## **Modules vs Features**
-
-| Module                    | Movie Selection | Theatre/Seat Booking | Payment Gateway | Ticket Generation | Reviews/Ratings | Notifications |
-|---------------------------|-----------------|-----------------------|-----------------|-------------------|-----------------|---------------|
-| **User Module**           | ✅              | ✅                    | ✅              | ✅                | ✅              | ✅            |
-| **Admin Module**          | ✅              | ✅                    | ✅              | ✅                | ❌              | ❌            |
-| **Theatre Management**    | ❌              | ✅                    | ❌              | ✅                | ❌              | ✅            |
-| **Payment System**        | ❌              | ❌                    | ✅              | ✅                | ❌              | ❌            |
 
 ---
 
