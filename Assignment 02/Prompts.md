@@ -49,7 +49,7 @@ This document outlines how AI systems were utilized during the development of th
 
 ### 5. UML Diagrams
 #### 5.1. Error Case Diagram
-- **Prompt**: "Create an error case diagram for an event booking platform showcasing potential user and manager issues."
+- **Prompt**: "Show an example for creating a error case diagram using PlantUML for event Booking App such as BookMyShow."
 - **AI Response**:
   - Diagram Syntax:
     ```text
@@ -97,7 +97,7 @@ This document outlines how AI systems were utilized during the development of th
     - **Payment Gateway**: Integration module for multiple providers.
 
 #### 5.3. Abuse Case Diagram
-- **Prompt**: "Create an abuse case diagram for potential security risks on an event booking platform."
+- **Prompt**: "Give an example for abuse case diagram for potential security risks on an event booking platform such as BookMyShow."
 - **AI Response**:
   - Security Concerns:
     - Unauthorized access attempts.
