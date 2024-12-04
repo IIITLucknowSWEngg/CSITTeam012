@@ -198,9 +198,7 @@ Admins should be able to create, modify, and delete events, as well as manage mo
 - **REQ-15**: System backups will occur every 24 hours to ensure data is not lost.
 
 ### 5.3 Security Requirements  
-- **REQ
-
--16**: All user data (including passwords and payment details) will be encrypted using **AES-256** encryption.
+- **REQ-16**: All user data (including passwords and payment details) will be encrypted using **AES-256** encryption.
 - **REQ-17**: Implement **2-factor authentication (2FA)** for admin access.
 
 ### 5.4 Software Quality Attributes  
