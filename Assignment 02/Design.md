@@ -229,7 +229,7 @@ This diagram illustrates the registration process for new users. It includes ste
 actor User
 participant "BookMyShow App" as BMSApp
 participant "Auth Service" as Auth
-@@ -11,12 +11,12 @@ participant "Ticketing System" as Ticketing
+participant "Ticketing System" as Ticketing
 User -> BMSApp: Open App
 BMSApp -> Auth: Check if User is logged in
 alt User Not Logged In
@@ -246,7 +246,7 @@ else User Logged In
 Auth -> BMSApp: User is already logged in
 end
 BMSApp -> User: Prompt to input current location
-@@ -33,13 +33,13 @@ Movie -> BMSApp: Return movie details and showtimes
+Movie -> BMSApp: Return movie details and showtimes
 User -> BMSApp: Select date and time
 alt Showtimes Available
     BMSApp -> Ticketing: Check seat availability
@@ -264,7 +264,7 @@ BMSApp -> Movie: Fetch movie details and showtimes for new date
 Movie -> BMSApp: Return new showtimes
 end
 User -> BMSApp: Select theater and seats
-@@ -51,12 +51,16 @@ BMSApp -> Payment: Initialize payment
+BMSApp -> Payment: Initialize payment
 Payment -> Payment: Process payment
 Payment -> BMSApp: Payment successful
 alt Payment Failed
