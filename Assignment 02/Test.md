@@ -31,8 +31,8 @@ describe('BookMyShow User Registration', function() {
   it('should register the user successfully', function() {
     registrationPage.open();
     registrationPage.fillRegistrationForm(
-      'Jane Doe',
-      'jane.doe@example.com',
+      'Priyanshu Agarwal',
+      'priyanshu@example.com',
       'securePassword123'
     );
     registrationPage.submitForm();
