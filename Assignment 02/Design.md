@@ -122,7 +122,33 @@ This activity diagram illustrates the step-by-step process a user follows while 
 ![User Browsing and Booking Tickets](https://github.com/user-attachments/assets/3b26be83-4f04-488d-b707-831ddb62ce98)
 
 ---
+### PlantUML Code
 
+```plantuml
+@startuml
+start
+:Open Website/App;
+:Search for events/movies;
+if (Are there search results?) then (Yes)
+    :View available options;
+    :Select an event/movie;
+    :Check seat availability;
+    if (Are seats available?) then (Yes)
+        :Select seats;
+        :Proceed to payment;
+        :Complete payment using gateway;
+        :Generate e-ticket;
+    else (No)
+        :Show 'Seats Unavailable' message;
+    endif
+else (No)
+    :Show 'No Results Found' message;
+endif
+stop
+@enduml
+
+```
+---
 #### **3.2.2 Event Organizer Adding an Event**  
 This diagram represents the workflow for event organizers to add a new event. It includes steps like providing event details, uploading media assets, setting ticket types and prices, and publishing the event for user visibility.  
 
@@ -130,7 +156,24 @@ This diagram represents the workflow for event organizers to add a new event. It
 ![Event Organizer Adding an Event](https://github.com/user-attachments/assets/0a8db8a2-3e9c-41ec-8d62-9a4513986cf9)
 
 ---
+### PlantUML Code
 
+```plantuml
+@startuml
+start
+:Log in as Event Organizer;
+:Access Event Management Dashboard;
+:Click "Add Event";
+:Fill event details (name, date, venue, etc.);
+:Upload media (banners, posters);
+:Define ticket types and prices;
+:Setup seating arrangement;
+:Save and Publish Event;
+stop
+@enduml
+
+```
+---
 #### **3.2.3 Payment Process**  
 This diagram outlines the payment process flow. It highlights the steps users follow to complete the payment, along with handling both successful and failed payment scenarios.  
 
@@ -138,7 +181,26 @@ This diagram outlines the payment process flow. It highlights the steps users fo
 ![Payment Process](https://github.com/user-attachments/assets/69b93770-5251-44e1-a16d-df12707914ef)
 
 ---
+### PlantUML Code
 
+```plantuml
+@startuml
+start
+:Redirect to Payment Gateway;
+:Choose payment method (Card/UPI/Net Banking);
+if (Payment successful?) then (Yes)
+    :Confirm booking;
+    :Generate receipt;
+    :Send notification to user (SMS/Email);
+else (No)
+    :Show 'Payment Failed' message;
+    :Allow retry or cancel;
+endif
+stop
+@enduml
+
+```
+---
 #### **3.2.4 Real-time Seat Booking Status Update**  
 This diagram explains the real-time mechanism for seat availability updates. It depicts how a user queries seat status and how the backend processes and returns real-time updates.  
 
@@ -146,7 +208,24 @@ This diagram explains the real-time mechanism for seat availability updates. It 
 ![Real-time Seat Booking Status Update](https://github.com/user-attachments/assets/dac0de12-a611-4e2e-b273-8af2f2706ee1)
 
 ---
+### PlantUML Code
 
+```plantuml
+@startuml
+start
+:User requests seat availability;
+:Send request to backend via API;
+:Check seat status in database;
+if (Seats available?) then (Yes)
+    :Return seat availability status to user;
+else (No)
+    :Return 'Seats Unavailable' status;
+endif
+stop
+@enduml
+
+```
+---
 #### **3.2.5 Personalized Event Recommendations**  
 This diagram showcases the process for generating personalized event recommendations. It demonstrates how user preferences and behavior are analyzed to suggest tailored events or movies.  
 
@@ -154,11 +233,25 @@ This diagram showcases the process for generating personalized event recommendat
 ![Personalized Event Recommendations](https://github.com/user-attachments/assets/24ad287d-d649-46da-9813-77797a29d776)
 
 ---
+### PlantUML Code
 
+```plantuml
+@startuml
+start
+:Log in to the platform;
+:Analyze user behavior and preferences;
+:Fetch recommendations from ML model;
+:Display personalized event suggestions;
+stop
+@enduml
+
+```
+---
 ## 4. Module Design
 
 ### 4.1 Frontend Architecture
 ![image](https://github.com/user-attachments/assets/0301a54c-8293-475d-8d8d-42539894db38)
+### PlantUML Code
 
 ```plantuml
 @startuml
@@ -306,143 +399,71 @@ end note
 
 ## 4.2 Backend System Architecture
 
-![System Architecture](Backend_arch_spotify.png)
+![image](https://github.com/user-attachments/assets/79c5d420-407c-409f-bd7a-6538a59b0ac0)
+### PlantUML Code
 
 ```plantuml
 @startuml
-!define DARKBLUE
-!includeurl https://raw.githubusercontent.com/Argonaut-B04/PlantUML-style-C4/master/style.puml
-
-title BookMyShow Clone - Backend System Architecture
-
-frame "Frontend Layer" {
-    [Web Client] as WebClient
-    [Mobile Client] as MobileClient
-}
-
-cloud "API Gateway" {
-    [Nginx / Kong API Gateway] as APIGateway
-}
-
-frame "Authentication Services" {
-    [Authentication Service] as AuthService
-    database "User Database" {
-        [PostgreSQL - User Profiles] as UserDB
-    }
-}
-
-frame "Event Management Microservices" {
-    [Event Creation Service] as EventCreateService
-    [Event Metadata Service] as EventMetadataService
+package "Backend System Architecture" {
     
-    database "Event Database" {
-        [PostgreSQL - Event Metadata] as EventDB
-    }
-    
-    storage "Event Media Storage" {
-        [Distributed File Storage] as EventMediaStorage
-    }
-}
+    package "Microservices" {
+        class EventService {
+            + getEventDetails(eventId: int): Event
+            + createEvent(event: Event): void
+            + updateEvent(eventId: int, event: Event): void
+        }
 
-frame "Booking Services" {
-    [Seat Selection Service] as SeatService
-    [Booking Confirmation Service] as BookingService
-    
-    database "Booking Database" {
-        [PostgreSQL - Bookings] as BookingDB
+        class BookingService {
+            + createBooking(userId: int, bookingDetails: Booking): BookingConfirmation
+            + cancelBooking(bookingId: int): void
+            + getBookingDetails(bookingId: int): Booking
+        }
+
+        class PaymentService {
+            + processPayment(paymentDetails: Payment): PaymentResponse
+            + getPaymentStatus(paymentId: int): PaymentStatus
+        }
+
+        class NotificationService {
+            + sendNotification(userId: int, message: String): void
+            + scheduleNotification(eventId: int, reminderTime: Date): void
+        }
+
+        class RecommendationService {
+            + generateRecommendations(userId: int): List<Event>
+            + updateRecommendationModel(userActivity: UserActivity): void
+        }
+
+        class AuthenticationService {
+            + login(credentials: Credentials): AuthToken
+            + register(userDetails: User): User
+            + validateToken(token: String): boolean
+        }
     }
-}
 
-frame "Payment Services" {
-    [Payment Processing Service] as PaymentService
-    database "Transaction Database" {
-        [PostgreSQL - Transactions] as TransactionDB
-    }
-}
+    package "Communication Mechanism" {
+        class RESTAPI {
+            + exposeEndpoints(): void
+        }
 
-frame "Content Delivery" {
-    [CDN Service] as CDN
-}
-
-frame "Content Services" {
-    [Recommendation Service] as RecommendationService
-    [Search Service] as SearchService
-    [Analytics Service] as AnalyticsService
-    
-    database "Redis Caches" {
-        [Booking Cache] as BookingCache
-        [Recommendation Cache] as RecommendCache
+        class MessageBroker {
+            + publish(event: Event): void
+            + subscribe(topic: String): void
+        }
     }
     
-    database "Elasticsearch" {
-        [Event Search Index] as SearchIndex
-    }
+    RESTAPI --> EventService
+    RESTAPI --> BookingService
+    RESTAPI --> PaymentService
+    RESTAPI --> NotificationService
+    RESTAPI --> RecommendationService
+    RESTAPI --> AuthenticationService
+
+    MessageBroker --> EventService
+    MessageBroker --> BookingService
+    MessageBroker --> NotificationService
+    MessageBroker --> RecommendationService
 }
-
-frame "Social Interaction Services" {
-    [Like/Share Service] as LikeShareService
-    [Comment Service] as CommentService
-    database "Interaction Database" {
-        [Cassandra - Likes/Comments] as InteractionDB
-    }
-}
-
-frame "Message Queues & Event Streaming" {
-    [Apache Kafka] as EventBus
-    [RabbitMQ] as MessageQueue
-}
-
-frame "Monitoring & Observability" {
-    [Prometheus] as Monitoring
-    [Grafana] as Dashboard
-    [ELK Stack] as Logging
-}
-
-' Connections
-WebClient --> APIGateway
-MobileClient --> APIGateway
-
-APIGateway --> AuthService : Authentication
-APIGateway --> EventCreateService : Event Creation
-APIGateway --> SeatService : Seat Selection
-APIGateway --> BookingService : Booking Confirmation
-APIGateway --> PaymentService : Payment Processing
-APIGateway --> LikeShareService : Likes/Share
-
-AuthService --> UserDB : Store/Retrieve Users
-AuthService --> EventBus : User Events
-
-EventCreateService --> EventMediaStorage : Store Media
-EventCreateService --> EventMetadataService : Generate Metadata
-EventCreateService --> EventDB : Store Metadata
-EventCreateService --> EventBus : Event Updates
-
-BookingService --> BookingDB : Confirm Bookings
-BookingService --> BookingCache : Cache Bookings
-BookingService --> EventBus : Booking Events
-
-PaymentService --> TransactionDB : Store Transactions
-PaymentService --> EventBus : Payment Events
-
-RecommendationService --> RecommendCache
-RecommendationService --> EventBus : Recommendation Events
-
-LikeShareService --> InteractionDB : Store Likes/Comments
-LikeShareService --> EventBus : Interaction Events
-
-CDN --> EventMediaStorage : Deliver Media
-
-SearchService --> SearchIndex : Query/Update Search
-SearchService --> EventBus : Search Events
-
-AnalyticsService --> EventBus : Consume Analytics
-AnalyticsService --> Monitoring : Report Metrics
-
-EventBus <--> MessageQueue : Event Routing
-
-Monitoring --> Logging : Collect Logs
-Monitoring --> Dashboard : Visualize Metrics
-
 @enduml
 
 ```
@@ -599,7 +620,7 @@ The BookMyShow clone uses a combination of SQL and NoSQL databases. Below is the
 - **Interactions**: Tracks likes, views, and shares related to events and movies.  
 - **Subscriptions**: Tracks user subscriptions to events or premium features.  
 
-![Database Design](./bookmyshow_database_design.png)
+![image](https://github.com/user-attachments/assets/3442d02f-7a18-4891-9794-a228f7f00189)
 
 ---
 
@@ -607,60 +628,62 @@ The BookMyShow clone uses a combination of SQL and NoSQL databases. Below is the
 
 ```plantuml
 @startuml
-!define DARKBLUE
-!includeurl https://raw.githubusercontent.com/Argonaut-B04/PlantUML-style-C4/master/style.puml
+package "Database Design" {
+    
+    entity User {
+        * userId: int
+        * name: String
+        * email: String
+        * password: String
+        * phoneNumber: String
+    }
 
-title BookMyShow Clone - Use Case Diagram
+    entity Event {
+        * eventId: int
+        * name: String
+        * location: String
+        * date: Date
+        * availableSeats: int
+        * organizerId: int
+    }
 
-// Event Interaction Use Cases
-usecase "Browse Events" as BrowseEvents
-usecase "Book Ticket" as BookTicket
-usecase "Leave Feedback" as LeaveFeedback
+    entity Booking {
+        * bookingId: int
+        * userId: int
+        * eventId: int
+        * seatNumbers: List<String>
+        * bookingDate: Date
+    }
 
-// Search and Discovery
-usecase "Search Events" as SearchEvents
-usecase "Recommended Events" as Recommendations
-usecase "Browse Genres" as BrowseGenres
+    entity Payment {
+        * paymentId: int
+        * bookingId: int
+        * amount: float
+        * status: String
+        * timestamp: Date
+    }
 
-// Subscriptions and Notifications
-usecase "Subscribe to Notifications" as Subscribe
-usecase "Manage Subscriptions" as ManageSubscriptions
+    entity Notification {
+        * notificationId: int
+        * userId: int
+        * message: String
+        * sentAt: Date
+    }
 
-// Admin Use Cases
-usecase "Content Moderation" as Moderation
-usecase "User Management" as UserManagement
-usecase "Platform Settings" as PlatformSettings
-
-// Relationships
-Visitor --> BrowseEvents
-Visitor --> SearchEvents
-Visitor --> Login
-Visitor --> Register
-
-User --> Login
-User --> BrowseEvents
-User --> BookTicket
-User --> LeaveFeedback
-User --> SearchEvents
-User --> Recommendations
-User --> Subscribe
-User --> ManageSubscriptions
-User --> ManageProfile
-
-Creator --> CreateEvent
-Creator --> EditEvent
-Creator --> DeleteEvent
-Creator --> BrowseGenres
-
-Admin --> Moderation
-Admin --> UserManagement
-Admin --> PlatformSettings
+    User --> Booking : "1..*"
+    Event --> Booking : "1..*"
+    Booking --> Payment : "1..1"
+    User --> Notification : "1..*"
+    Event --> Notification : "1..*"
+}
 @enduml
+
 ```
 ---
 ## 6. Interface Design
 
 ![Interface design](https://github.com/user-attachments/assets/c4d695df-979d-4f2b-bf92-da219792d006)
+### PlantUML Code
 
 ```plantuml
 @startuml
@@ -750,6 +773,7 @@ end note
 ## 6.3 Notification Flow Diagram
 This diagram represents the flow of notifications for events like new comments or event updates.
 ![image](https://github.com/user-attachments/assets/cb783888-4e54-495d-90e1-7d339c2f9958)
+### PlantUML Code
 
 ```plantuml
 @startuml
