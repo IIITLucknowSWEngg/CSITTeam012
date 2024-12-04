@@ -67,7 +67,7 @@ Notifications --> NotificationService : Send Emails/SMS
 ## 2. Container Diagram
 
 ### Diagram
-![Container Diagram](Assignment%2002/Diagrams/Container.png)  
+![Container Diagram](/Assignment%2002/Diagrams/Container.png)  
 
 ### Code
 ```plantuml
@@ -162,7 +162,7 @@ EventOrganizer --> WebFrontend : "Submit Events"
 ## 3. Component Diagram
 
 ### Diagram
-![Component Diagram](Assignment%2002/Diagrams/Component.png)  
+![Component Diagram](/Assignment%2002/Diagrams/Component.png)  
 
 ### Code
 ```plantuml
@@ -309,7 +309,7 @@ NotificationService --> MessageQueue : "Queue Notifications"
 ## 4. Deployment Diagram
 
 ### Diagram
-![Deployment Diagram](Assignment%2002/Diagrams/Deployment.png)  
+![Deployment Diagram](/Assignment%2002/Diagrams/Deployment.png)  
 
 ### Code
 ```plantuml
