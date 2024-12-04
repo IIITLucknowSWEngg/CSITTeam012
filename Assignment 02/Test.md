@@ -1,128 +1,342 @@
-# Test Plan for BookMyShow Clone
+# BookMyShow - User Registration Test
 
----
+## Feature: User Registration
 
-## 1. Introduction
-The BookMyShow Clone is a platform that enables users to book tickets for events, movies, and shows.  
-This document outlines the testing methodology to ensure the platform meets quality standards.
+### Scenario: User registers successfully
 
----
+#### Description:
+Test the user registration process to ensure users can register successfully and are redirected to the login page upon completion.
 
-## 2. Scope
 
-### Components to Test:
-1. **User Module**: Registration, login, profile management, and settings.  
-2. **Event Discovery Module**: Browse events, search, and view event details.  
-3. **Booking Module**: Seat selection, booking process, and booking history.  
-4. **Payment Module**: Securely handle ticket payments.  
-5. **Organizer Module**: Event creation and audience analytics.  
-6. **Third-Party Integrations**: Social media sharing, payment gateways, and promotional tools.
+### Steps:
 
----
+1. **Given**:  
+   The user is on the registration page.
 
-## 3. Modules Overview
+2. **When**:  
+   The user enters valid details such as valid name, email, password
 
-### 1. **User Module**
-#### Features:
-- **Registration/Login**: Account creation and secure login.
-- **Profile Management**: Update user information and preferences.
-- **Settings**: Manage account settings, privacy, and notifications.
+3. **Then**:  
+   - The user sees a success message: `"Registration successful"`.  
+   - The user is redirected to the login page (`/login`).
 
----
 
-### 2. **Event Discovery Module**
-#### Features:
-- **Browse Events**: Explore events, movies, genres, and locations.
-- **Search**: Find events by title, genre, or location.
-- **Event Details**: View event descriptions, trailers, and ratings.
-
----
-
-### 3. **Booking Module**
-#### Features:
-- **Seat Selection**: Choose seats for movies or events.
-- **Booking Process**: Complete the ticket booking process.
-- **Booking History**: View and manage past bookings.
-
----
-
-### 4. **Payment Module**
-#### Features:
-- **Payment Processing**: Securely handle payments with multiple methods.
-- **Transaction History**: Record and display payment history.
-- **Refunds and Cancellations**: Process refunds for canceled bookings.
-
----
-
-### 5. **Organizer Module**
-#### Features:
-- **Event Creation**: Organizers can create and publish events.
-- **Analytics Dashboard**: View ticket sales and audience insights.
-
----
-
-## 4. Objectives
-- Validate functionality across all modules.
-- Ensure data security, especially in payments and user data.
-- Test performance under high user load.
-- Verify user experience across different devices and platforms.
-
----
-
-## 5. Testing Strategy
-
-### Types of Testing:
-1. **Unit Testing**: Test individual components like login or seat selection.
-2. **Integration Testing**: Validate interaction between modules (e.g., booking and payment).
-3. **System Testing**: Ensure the entire system meets requirements.
-4. **Performance Testing**: Load test with high traffic (e.g., 50,000 users).
-5. **Security Testing**: Check vulnerabilities in data encryption and access control.
-6. **Usability Testing**: Ensure an intuitive and seamless user experience.
-
----
-
-## 6. Test Environment
-
-### **Hardware**:
-- **User Devices**: Mobile (Android/iOS), Desktop, Tablets.
-- **Server**: High-performance servers with load balancing.
-
-### **Software**:
-- **Frontend**: React Native for mobile, React.js for web.
-- **Backend**: Node.js with Express.js.
-- **Database**: PostgreSQL or MongoDB.
-
-### **Configuration**:
-- Staging server mirroring production environment.
-- Mock services for external APIs.
-
----
-
-## 7. Test Cases
-
-### **Feature: User Registration and Login**
-
-#### **Scenario**: User registers with valid details  
-**Given**: The user is on the registration page.  
-**When**: The user enters valid details (email, password, username).  
-**Then**:  
-- The user should be successfully registered.  
-- The user should be redirected to the welcome page.
-
+## Chai.js Code:
 ```javascript
 const chai = require('chai');
 const expect = chai.expect;
 const registrationPage = require('../pages/registrationPage');
 
-describe('User Registration', function() {
-  it('should register a user successfully', function() {
+describe('BookMyShow User Registration', function() {
+  it('should register the user successfully', function() {
     registrationPage.open();
-
-    registrationPage.enterDetails('newuser@example.com', 'Password123', 'newuser');
-
-    registrationPage.submitRegistration();
-
-    expect(registrationPage.getWelcomeMessage()).to.include('Welcome, newuser');
-    expect(browser.getUrl()).to.include('/welcome');
+    registrationPage.fillRegistrationForm(
+      'Jane Doe',
+      'jane.doe@example.com',
+      'securePassword123'
+    );
+    registrationPage.submitForm();
+    expect(registrationPage.getSuccessMessage()).to.equal('Registration successful');
+    expect(browser.getUrl()).to.include('/login');
   });
 });
+```
+# BookMyShow - User Login Test
+
+## Feature: User Login
+
+### Scenario: User logs in with valid credentials
+
+#### Description:
+Test the user login process to ensure users can log in successfully and are redirected to the dashboard upon successful authentication.
+
+
+### Steps:
+
+1. **Given**:  
+   The user is on the login page.
+
+2. **When**:  
+   The user enters valid credentials such as email and password.
+
+3. **Then**:  
+   - The user sees a success message: `"Login successful"`.  
+   - The user is redirected to the login page (`/login`).
+---
+
+### Code Implementation
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const loginPage = require('../pages/loginPage');
+
+describe('BookMyShow User Login', function() {
+  it('should login user successfully', function() {
+    loginPage.open();
+    loginPage.enterCredentials('priyanshu@example.com', 'password123');
+    loginPage.submitLogin();
+    expect(loginPage.getWelcomeMessage()).to.include('Welcome, John Doe');
+    expect(browser.getUrl()).to.include('/dashboard');
+  });
+});
+```
+
+# BookMyShow - Event and Movie Management Test
+
+## Feature: Event and Movie Management
+
+### Scenario: User views events and movies, and checks movie schedules
+
+#### Description:
+Test the event and movie management functionality to ensure that events and movies are listed, categorized, and scheduled correctly, and that the user can search for events by city or venue.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user is on the event or movie listing page.
+
+2. **When**:  
+   - The user views the event or movie listings.  
+   - The user sorts or filters the events or movies based on category (e.g., genre, language) or venue.  
+   - The user searches for events or movies by city or venue.  
+   - The user checks the movie schedule for available shows and seat availability.
+
+3. **Then**:  
+   - The events or movies should be correctly categorized and sorted.  
+   - The user should receive accurate search results based on the city or venue.  
+   - Movie schedules should be displayed accurately with available seats for the selected showtime.  
+   - Expired schedules should not be available for booking.
+
+---
+
+### Code Implementation
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const eventPage = require('../pages/eventPage');
+const moviePage = require('../pages/moviePage');
+
+describe('BookMyShow Event and Movie Management', function() {
+  it('should display events sorted by category and city', function() {
+    eventPage.open();
+    eventPage.sortEvents('Category');
+    eventPage.filterEventsByCity('Mumbai');
+    const events = eventPage.getEventList();
+    expect(events[0].category).to.equal('Concert');
+    expect(events[0].city).to.equal('Mumbai');
+  });
+
+  it('should display accurate movie schedules and seat availability', function() {
+    moviePage.open();
+    moviePage.searchMovie('Avengers: Endgame');
+    moviePage.selectShowtime('7:00 PM');
+    const availableSeats = moviePage.getAvailableSeats('7:00 PM');
+    expect(availableSeats).to.be.greaterThan(0);
+  });
+
+  it('should not display expired movie schedules', function() {
+    moviePage.open();
+    moviePage.searchMovie('Pushpa 2');
+    const expiredSchedules = moviePage.getExpiredSchedules();
+    expect(expiredSchedules.length).to.equal(0);
+  });
+});
+```
+
+# BookMyShow - Ticket Booking Test
+
+## Feature: Ticket Booking
+
+### Scenario: User books a ticket successfully
+
+#### Description:
+Test the ticket booking functionality to ensure users can successfully book tickets for a movie or event and receive a confirmation message.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   - The user is logged in.  
+   - The user is on the ticket booking page.
+
+2. **When**:  
+   - The user selects a movie or event.  
+   - The user selects the showtime and seats.  
+   - The user selects a payment method.
+
+3. **Then**:  
+   - The ticket should be successfully booked.  
+   - The user sees a confirmation message: `"Ticket booked successfully"`.  
+   - The user is redirected to the booking details page (`/booking-details`).
+
+---
+
+### Code Implementation
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const bookingPage = require('../pages/bookingPage');
+
+describe('BookMyShow Ticket Booking', function() {
+  it('should book a ticket successfully', function() {
+    bookingPage.open();
+    bookingPage.selectMovie('Pushpa 2');
+    bookingPage.selectShowtime('7:00 PM');
+    bookingPage.selectSeats(['A1', 'A2']);
+    bookingPage.selectPaymentMethod('Credit Card');
+    bookingPage.submitBooking();
+    expect(bookingPage.getConfirmationMessage()).to.equal('Ticket booked successfully');
+    expect(browser.getUrl()).to.include('/booking-details');
+  });
+});
+```
+
+# BookMyShow - Payment Processing Test
+
+## Feature: Payment Processing
+
+### Scenario: User completes a payment for booking tickets
+
+#### Description:
+Test the payment process to ensure users can successfully complete their payments for ticket bookings and receive a payment confirmation.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user has selected tickets and is on the payment page.
+
+2. **When**:  
+   The user selects a payment method and enters valid payment details -: Card Number, Expiry Date, CVV
+
+3. **Then**:  
+   - The payment should be processed successfully.  
+   - The user receives a confirmation message: `"Payment successful"`.  
+   - The user is redirected to the payment confirmation page (`/payment-confirmation`).
+
+---
+
+### Code Implementation
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const paymentPage = require('../pages/paymentPage');
+
+describe('BookMyShow Payment Processing', function() {
+  it('should process payment successfully', function() {
+    paymentPage.open();
+    paymentPage.enterPaymentDetails('1234 5678 9012 3456', '12/25', '123');
+    paymentPage.submitPayment();
+    expect(paymentPage.getPaymentConfirmation()).to.equal('Payment successful');
+    expect(browser.getUrl()).to.include('/payment-confirmation');
+  });
+});
+```
+# BookMyShow - Cancellations and Refunds Test
+
+## Feature: Cancellations and Refunds
+
+### Scenario: User cancels a booking and receives a refund
+
+#### Description:
+Test the cancellation and refund process to ensure users are properly refunded based on the cancellation policy, and that the system provides timely notifications.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user has a confirmed ticket booking.
+
+2. **When**:  
+   - The user decides to cancel the booking.  
+   - The user is informed of the refund amount based on the cancellation time.
+
+3. **Then**:  
+   - The refund amount should be correctly calculated according to the cancellation policy.  
+   - The user should receive a notification about the cancellation and refund status.  
+   - The refund should be processed and reflected in the user’s payment method within the defined timeline.
+
+---
+
+### Code Implementation
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const bookingPage = require('../pages/bookingPage');
+const refundPage = require('../pages/refundPage');
+
+describe('BookMyShow Cancellations and Refunds', function() {
+  it('should process refund correctly based on cancellation time', function() {
+    bookingPage.open();
+    bookingPage.bookTicket('Pushpa 2', '7:00 PM', ['A1', 'A2']);
+    bookingPage.cancelBooking();
+    
+    refundPage.open();
+    refundPage.checkRefundAmount('7:00 PM');
+    
+    const expectedRefundAmount = 500;
+    expect(refundPage.getRefundAmount()).to.equal(expectedRefundAmount);
+    expect(refundPage.getRefundStatus()).to.include('Refund processed successfully');
+    
+    refundPage.processRefund('Credit Card');
+    expect(refundPage.getRefundStatus()).to.include('Refund completed within 3-5 business days');
+  });
+});
+```
+
+# BookMyShow - User Profile Management Test
+
+## Feature: User Profile Management
+
+### Scenario: User updates their profile successfully
+
+#### Description:
+Test the profile update functionality to ensure users can modify their profile details (email, password, first name, last name, and address), and the changes are saved successfully.
+
+
+### Steps:
+
+1. **Given**:  
+   The user is logged in.
+
+2. **When**:  
+   - The user navigates to the profile page.  
+   - The user updates their profile information with the details such as Email, Password, FirstName, LastName and Address.
+
+3. **Then**:  
+   - The profile should be updated successfully.  
+   - The user sees a confirmation message: `"Profile updated successfully"`.
+
+---
+
+### Code Implementation
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const profilePage = require('../pages/profilePage');
+
+describe('BookMyShow User Profile Management', function() {
+  it('should update user profile successfully', function() {
+    profilePage.open();
+    profilePage.updateProfile({
+      email: 'johnupdated@example.com',
+      password: 'newSecurePassword123',
+      firstName: 'John',
+      lastName: 'Updated',
+      address: '123 New Street, Cityville, Country'
+    });
+    expect(profilePage.getSuccessMessage()).to.equal('Profile updated successfully');
+  });
+});
+```
