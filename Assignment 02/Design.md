@@ -309,11 +309,12 @@ end note
 ![System Architecture](Backend_arch_spotify.png)
 
 ```plantuml
+```plantuml
 @startuml
 !define DARKBLUE
 !includeurl https://raw.githubusercontent.com/Argonaut-B04/PlantUML-style-C4/master/style.puml
 
-title Spotify Clone - Backend System Architecture
+title BookMyShow Clone - Backend System Architecture
 
 frame "Frontend Layer" {
     [Web Client] as WebClient
@@ -327,21 +328,36 @@ cloud "API Gateway" {
 frame "Authentication Services" {
     [Authentication Service] as AuthService
     database "User Database" {
-        [MongoDB - User Profiles] as UserDB
+        [PostgreSQL - User Profiles] as UserDB
     }
 }
 
-frame "Music Processing Microservices" {
-    [Music Upload Service] as UploadService
-    [Music Encoding Service] as EncodingService
-    [Thumbnail Generation Service] as ArtworkService
+frame "Event Management Microservices" {
+    [Event Creation Service] as EventCreateService
+    [Event Metadata Service] as EventMetadataService
     
-    database "Music Metadata DB" {
-        [PostgreSQL - Music Metadata] as MusicMetadataDB
+    database "Event Database" {
+        [PostgreSQL - Event Metadata] as EventDB
     }
     
-    storage "Music Storage" {
-        [Distributed File Storage] as MusicStorage
+    storage "Event Media Storage" {
+        [Distributed File Storage] as EventMediaStorage
+    }
+}
+
+frame "Booking Services" {
+    [Seat Selection Service] as SeatService
+    [Booking Confirmation Service] as BookingService
+    
+    database "Booking Database" {
+        [PostgreSQL - Bookings] as BookingDB
+    }
+}
+
+frame "Payment Services" {
+    [Payment Processing Service] as PaymentService
+    database "Transaction Database" {
+        [PostgreSQL - Transactions] as TransactionDB
     }
 }
 
@@ -350,32 +366,25 @@ frame "Content Delivery" {
 }
 
 frame "Content Services" {
-    [Music Recommendation Service] as RecommendationService
+    [Recommendation Service] as RecommendationService
     [Search Service] as SearchService
     [Analytics Service] as AnalyticsService
     
     database "Redis Caches" {
-        [Playlist Cache] as PlaylistCache
+        [Booking Cache] as BookingCache
         [Recommendation Cache] as RecommendCache
     }
     
     database "Elasticsearch" {
-        [Music Search Index] as SearchIndex
+        [Event Search Index] as SearchIndex
     }
 }
 
 frame "Social Interaction Services" {
     [Like/Share Service] as LikeShareService
-    [Playlist Interaction Service] as PlaylistService
+    [Comment Service] as CommentService
     database "Interaction Database" {
         [Cassandra - Likes/Comments] as InteractionDB
-    }
-}
-
-frame "Monetization Services" {
-    [Monetization Service] as MonetizationService
-    database "Billing Database" {
-        [PostgreSQL - Earnings] as BillingDB
     }
 }
 
@@ -395,42 +404,40 @@ WebClient --> APIGateway
 MobileClient --> APIGateway
 
 APIGateway --> AuthService : Authentication
-APIGateway --> UploadService : Music Upload
+APIGateway --> EventCreateService : Event Creation
+APIGateway --> SeatService : Seat Selection
+APIGateway --> BookingService : Booking Confirmation
+APIGateway --> PaymentService : Payment Processing
 APIGateway --> LikeShareService : Likes/Share
-APIGateway --> PlaylistService : Playlist Management
 
 AuthService --> UserDB : Store/Retrieve Users
 AuthService --> EventBus : User Events
 
-UploadService --> MusicStorage : Store Music
-UploadService --> EncodingService : Trigger Encoding
-UploadService --> MusicMetadataDB : Store Metadata
-UploadService --> EventBus : Upload Events
+EventCreateService --> EventMediaStorage : Store Media
+EventCreateService --> EventMetadataService : Generate Metadata
+EventCreateService --> EventDB : Store Metadata
+EventCreateService --> EventBus : Event Updates
 
-EncodingService --> ArtworkService : Generate Artwork
-EncodingService --> MusicStorage : Store Processed Music
-EncodingService --> EventBus : Encoding Events
+BookingService --> BookingDB : Confirm Bookings
+BookingService --> BookingCache : Cache Bookings
+BookingService --> EventBus : Booking Events
 
-RecommendationService --> SearchIndex
+PaymentService --> TransactionDB : Store Transactions
+PaymentService --> EventBus : Payment Events
+
 RecommendationService --> RecommendCache
 RecommendationService --> EventBus : Recommendation Events
 
 LikeShareService --> InteractionDB : Store Likes/Comments
-LikeShareService --> EventBus : Like Events
+LikeShareService --> EventBus : Interaction Events
 
-PlaylistService --> PlaylistCache : Update Playlist
-PlaylistService --> EventBus : Playlist Events
+CDN --> EventMediaStorage : Deliver Media
 
-CDN --> MusicStorage : Distribute Content
-
-SearchService --> SearchIndex : Update/Query Search
+SearchService --> SearchIndex : Query/Update Search
 SearchService --> EventBus : Search Events
 
-AnalyticsService --> EventBus : Consume Events
+AnalyticsService --> EventBus : Consume Analytics
 AnalyticsService --> Monitoring : Report Metrics
-
-MonetizationService --> BillingDB : Track Earnings
-MonetizationService --> EventBus : Monetization Events
 
 EventBus <--> MessageQueue : Event Routing
 
@@ -438,6 +445,7 @@ Monitoring --> Logging : Collect Logs
 Monitoring --> Dashboard : Visualize Metrics
 
 @enduml
+
 ```
 # BookMyShow Clone System Design
 
