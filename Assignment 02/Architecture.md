@@ -7,7 +7,7 @@ This document contains all the diagrams and their respective PlantUML code for t
 ## 1. System Context Diagram
 
 ### Diagram
-![System Context Diagram](Assignment%2002/Diagrams/Context.png)  
+![System Context Diagram](/Assignment%2002/Diagrams/Context.png)  
 
 ### Code
 ```plantuml
