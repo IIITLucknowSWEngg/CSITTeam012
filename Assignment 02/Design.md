@@ -309,7 +309,6 @@ end note
 ![System Architecture](Backend_arch_spotify.png)
 
 ```plantuml
-```plantuml
 @startuml
 !define DARKBLUE
 !includeurl https://raw.githubusercontent.com/Argonaut-B04/PlantUML-style-C4/master/style.puml
