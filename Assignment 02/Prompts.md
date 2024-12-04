@@ -1,16 +1,17 @@
 # AI Usage Documentation
 
-This file outlines the interaction with AI systems and the prompts used to seek assistance, gather ideas, and resolve challenges during the development of the **Book My Show Clone** project.
+This document outlines how AI systems were utilized during the development of the **Book My Show Clone** project, detailing the prompts used to gather ideas, resolve challenges, and streamline various aspects of software development.
 
 ---
 
 ## Purpose of Using AI
-1. To gather inspiration and brainstorm features for the platform.
-2. To receive help with software engineering documentation, including SRS, URD, and stakeholder analysis.
-3. To implement complex functionalities like secure authentication, real-time seat selection, and payment integration.
-4. To debug and optimize code for enhanced performance.
-5. To receive suggestions for project structuring and task prioritization.
-6. To design UML diagrams for the platform's architecture and use cases.
+
+1. **Feature Inspiration and Brainstorming**: Gathering advanced features for the event booking platform.
+2. **Software Engineering Documentation**: Assisting with the creation of essential documents like SRS (Software Requirements Specification), URD (User Requirements Document), and stakeholder analysis.
+3. **Complex Functional Implementations**: Implementing functionalities such as secure user authentication, real-time seat selection, and payment gateway integration.
+4. **Code Optimization and Debugging**: Offering solutions for code optimization and bug fixing.
+5. **Project Structuring and Task Prioritization**: Providing suggestions on project structure and task management.
+6. **Diagram Design**: Creating UML diagrams for platform architecture and use cases.
 
 ---
 
@@ -115,6 +116,7 @@ This file outlines the interaction with AI systems and the prompts used to seek 
 ---
 
 ## Impact of AI
+
 - **Time Saved**: AI significantly reduced the time needed for brainstorming, writing documentation, and designing diagrams.
 - **Clarity**: The suggestions improved the structure and coverage of requirements and implementation plans.
 - **Technical Support**: AI provided solutions for complex functionalities like real-time seat updates and secure payments.
