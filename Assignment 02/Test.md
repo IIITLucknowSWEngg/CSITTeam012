@@ -62,7 +62,6 @@ Test the user login process to ensure users can log in successfully and are redi
 3. **Then**:  
    - The user sees a success message: `"Login successful"`.  
    - The user is redirected to the login page (`/login`).
----
 
 ## Chai.js Code:
 ```javascript
@@ -90,7 +89,6 @@ describe('BookMyShow User Login', function() {
 #### Description:
 Test the event and movie management functionality to ensure that events and movies are listed, categorized, and scheduled correctly, and that the user can search for events by city or venue.
 
----
 
 ### Steps:
 
@@ -109,7 +107,6 @@ Test the event and movie management functionality to ensure that events and movi
    - Movie schedules should be displayed accurately with available seats for the selected showtime.  
    - Expired schedules should not be available for booking.
 
----
 
 ## Chai.js Code:
 ```javascript
@@ -154,7 +151,6 @@ describe('BookMyShow Event and Movie Management', function() {
 #### Description:
 Test the ticket booking functionality to ensure users can successfully book tickets for a movie or event and receive a confirmation message.
 
----
 
 ### Steps:
 
@@ -172,7 +168,6 @@ Test the ticket booking functionality to ensure users can successfully book tick
    - The user sees a confirmation message: `"Ticket booked successfully"`.  
    - The user is redirected to the booking details page (`/booking-details`).
 
----
 
 ## Chai.js Code:
 ```javascript
@@ -218,7 +213,6 @@ Test the payment process to ensure users can successfully complete their payment
    - The user receives a confirmation message: `"Payment successful"`.  
    - The user is redirected to the payment confirmation page (`/payment-confirmation`).
 
----
 
 ## Chai.js Code:
 
@@ -246,7 +240,6 @@ describe('BookMyShow Payment Processing', function() {
 #### Description:
 Test the cancellation and refund process to ensure users are properly refunded based on the cancellation policy, and that the system provides timely notifications.
 
----
 
 ### Steps:
 
@@ -262,7 +255,7 @@ Test the cancellation and refund process to ensure users are properly refunded b
    - The user should receive a notification about the cancellation and refund status.  
    - The refund should be processed and reflected in the user’s payment method within the defined timeline.
 
----
+
 
 ## Chai.js Code:
 
@@ -314,7 +307,7 @@ Test the profile update functionality to ensure users can modify their profile d
    - The profile should be updated successfully.  
    - The user sees a confirmation message: `"Profile updated successfully"`.
 
----
+
 
 ## Chai.js Code:
 
