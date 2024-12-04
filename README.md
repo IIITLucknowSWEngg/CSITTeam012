@@ -24,12 +24,3 @@
 
 ## Book My Show Clone 
 The BookMyShow clone will feature secure user authentication, personalized profiles, and an intuitive event browsing system with advanced filters. Users can select seats in real-time and make bookings through multiple payment gateways. The platform will offer personalized event recommendations, booking history management, and e-ticket downloads with QR codes. Admins will have a dedicated panel for event management and analytics. Additionally, users can leave reviews, receive notifications, and enjoy multi-language and multi-currency support for a seamless booking experience.
-
-## Documents
-
-### Assignment 1
-
-1. [Project Description](https://github.com/IIITLucknowSWEngg/CSITTeam012/blob/main/Assignment1/Project.md)
-2. [Stake Holders Document](https://github.com/IIITLucknowSWEngg/CSITTeam012/blob/main/Assignment1/Stakeholders.md)
-3. [User Requirements Document (URD)](https://github.com/IIITLucknowSWEngg/CSITTeam012/blob/main/Assignment1/URD.md)
-4. [Software Requirements Specification (SRS)](https://github.com/IIITLucknowSWEngg/CSITTeam012/blob/main/Assignment1/SRS.md)
