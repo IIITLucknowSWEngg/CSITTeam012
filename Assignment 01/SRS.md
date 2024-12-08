@@ -203,7 +203,6 @@ The platform provides tools for advertisers and sponsors to create, manage, and 
 
 ---
 
----
 
 ## 5. Other Nonfunctional Requirements
 
