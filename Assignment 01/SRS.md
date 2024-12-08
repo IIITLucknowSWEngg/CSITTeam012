@@ -35,6 +35,7 @@ Date Created: November 30, 2024
    4.2 Booking System  
    4.3 Payment Gateway Integration  
    4.4 Event Management  
+   4.5 Advertisers and Sponsors Features  
 
 5. **Other Nonfunctional Requirements**  
    5.1 Performance Requirements  
@@ -95,6 +96,7 @@ The system will support the following major functionalities:
 ### 2.3 User Classes and Characteristics  
 - **End Users**: Moviegoers and event attendees. These users will register, browse events, and book tickets.
 - **Admin Users**: Administrators who manage events, ticket bookings, user information, and resolve queries.
+**Advertisers and Sponsors**:Advertisers and sponsors use the platform to promote their events, products, or services. They require tools for ad campaign management, detailed analytics, and access to premium placements.  
 - **Support Staff**: Users who handle customer support inquiries related to bookings and events.
 
 ### 2.4 Operating Environment  
@@ -187,6 +189,20 @@ Admins should be able to create, modify, and delete events, as well as manage mo
 - **REQ-13**: Admins can edit event details, including date, time, and ticket pricing.
 - **REQ-14**: Admins can manage seat availability for each showtime.
 
+### 4.5 Advertisers and Sponsors Features
+
+**Description and Priority**:  
+The platform provides tools for advertisers and sponsors to create, manage, and analyze ad campaigns. These features are essential for driving revenue and offering promotional opportunities to sponsors. **Priority: Medium**.
+
+**Functional Requirements**:  
+- **REQ-14**: Advertisers can create ad campaigns using a self-service tool.  
+- **REQ-15**: Ads can be targeted based on demographics (e.g., age, location, and interests).  
+- **REQ-16**: Advertisers can monitor ad performance with detailed analytics (e.g., impressions, click-through rates, and ROI).  
+- **REQ-17**: Premium ad placements, such as homepage banners or event-specific sponsorships, can be purchased by sponsors.  
+- **REQ-18**: Integration of promotional materials (e.g., images, videos, and text) provided by sponsors.  
+
+---
+
 ---
 
 ## 5. Other Nonfunctional Requirements
@@ -205,9 +221,12 @@ Admins should be able to create, modify, and delete events, as well as manage mo
 - **Scalability**: The system should scale to handle an increasing number of users and events.
 - **Usability**: The platform must be easy to use with a responsive design for all devices.
 
-### 5.5 Business Rules  
-- **REQ-18**: Tickets cannot be refunded after purchase.
-- **REQ-19**: Admins can provide promo codes for discounts.
+### 5.5 Business Rules
+
+- The platform must offer clear guidelines for ad content, prohibiting misleading or offensive materials.  
+- Ads must comply with regional advertising standards and regulations.  
+- Sponsors can bid for premium ad placements based on availability.  
+- Campaign performance reports must be provided to sponsors in real time.  
 
 ---
 
