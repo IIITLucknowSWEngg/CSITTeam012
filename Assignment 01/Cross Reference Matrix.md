@@ -1,39 +1,10 @@
-# BookMyShow Clone: Cross-Reference Matrix
+# Cross-Reference Matrix: External Stakeholders to URD, SRS, Design, Architecture, and Test
 
-| Stakeholder                     | URD Sections | URD Section Names            | SRS Sections | SRS Section Names         |
-|---------------------------------|--------------|------------------------------|--------------|---------------------------|
-| Software Development Team       | UR1          | User Login and Registration  | SRS1         | Functional Requirements   |
-| Software Development Team       | UR2          | Event Search and Filters     | SRS2.1       | Scalability               |
-| Software Development Team       | UR3          | Ticket Booking               | SRS2.2       | Performance               |
-| Software Development Team       | UR4          | Payment System               | SRS3         | System Design             |
-| Software Development Team       | UR5          | Notifications                | SRS4         | External Interfaces       |
-| Product Managers                | UR1          | User Login and Registration  | SRS1         | Functional Requirements   |
-| Product Managers                | UR2          | Event Search and Filters     | SRS2.3       | Security                  |
-| UI/UX Designers                 | UR2          | Event Search and Filters     | SRS1         | Functional Requirements   |
-| UI/UX Designers                 | UR6          | Accessibility Features       | SRS2.4       | Accessibility             |
-| Quality Assurance (QA) Team     | UR1          | User Login and Registration  | SRS1         | Functional Requirements   |
-| Quality Assurance (QA) Team     | UR2          | Event Search and Filters     | SRS2.2       | Performance               |
-| DevOps Engineers                |              |                              | SRS2.1       | Scalability               |
-| DevOps Engineers                |              |                              | SRS2.2       | Performance               |
-| Data Analysts and Scientists    | UR2          | Event Search and Filters     | SRS3         | System Design             |
-| Data Analysts and Scientists    | UR3          | Ticket Booking               | SRS3         | System Design             |
-| Cybersecurity Team              | UR7          | Privacy Controls             | SRS2.3       | Security                  |
-| System Architects               |              |                              | SRS3         | System Design             |
-| Customer Support Team           | UR5          | Notifications                | SRS2.4       | Accessibility             |
-| Market Analysts                 |              |                              | SRS2.1       | Scalability               |
-| Market Analysts                 |              |                              | SRS3         | System Design             |
-| Partnership Managers            | UR3          | Ticket Booking               | SRS4         | External Interfaces       |
-| Partnership Managers            | UR4          | Payment System               | SRS4         | External Interfaces       |
-| Marketing and Growth Team       |              |                              | SRS2.1       | Scalability               |
-| Marketing and Growth Team       |              |                              | SRS2.4       | Accessibility             |
-| Legal and Compliance Team       | UR7          | Privacy Controls             | SRS2.3       | Security                  |
-| Accessibility Team              | UR6          | Accessibility Features       | SRS2.4       | Accessibility             |
-| Data Privacy Officer            | UR7          | Privacy Controls             | SRS2.3       | Security                  |
-| API Integration Partners        |              |                              | SRS4         | External Interfaces       |
-| Customers                       | UR1          | User Login and Registration  | SRS4.1       | Functional Requirements   |
-| Customers                       | UR2          | Event Search and Filters     | SRS4.4       | Functional Requirements   |
-| Customers                       | UR3          | Ticket Booking               | SRS4.2       | Functional Requirements   |
-| Customers                       | UR4          | Payment System               | SRS4.3       | Functional Requirements   |
-| Event Organizers and Venue Owners | UR3        | Ticket Booking               | SRS3         | External Interfaces       |
-| Regulators                      | UR7          | Privacy Controls             | SRS5.3       | Security                  |
-| Advertisers and Sponsors        | UR5          | Notifications                | SRS3         | External Interfaces       |
+| **External Stakeholder**        | **URD Section (Source)**                                               | **SRS Section (Source)**                                              | **Design Section (Source)**                                               | **Architecture**                                                | **Test**                                                                          |
+|----------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **API Integration Partners**    | **UR8**: API Integration Requirements (**URD.md**, Section 1.8)        | **SRS3.3**: Software Interfaces                                        | **4.2.1 Distributed Service Ecosystem**: Microservices for API integrations (**Design.md**, Section 4.2.1) | External Systems Integration                                  | API Integration Testing: Payment Gateway, Notifications |
+| **Customers**                   | **UR1**: User Interaction (**URD.md**, Section 1.1)                   | **SRS4.1**: User Registration and Login                               | **4.1.2 User Interface Design**: Seat Map, Payment UI (**Design.md**, Section 4.1.2) | Presentation Layer                                            | Functional Testing: User Registration, Login, Booking, Payment |
+| **Event Organizers and Venue Owners** | **UR2**: Event Management (**URD.md**, Section 1.2)                   | **SRS4.4**: Event Management                                          | **4.2.3 Event Management Design**: Dashboard, Ticket Categories (**Design.md**, Section 4.2.3) | Microservices                                                | Functional Testing: Event Creation, Scheduling, Sales Monitoring |
+| **Regulators**                  | **UR9**: Privacy and Compliance Requirements (**URD.md**, Section 1.9) | **SRS5.3**: Security Requirements                                     | **5.3 Security Design**: Privacy Controls, Data Encryption (**Design.md**, Section 5.3) | Modular System Components                                   | System Validation Testing: Data Encryption, Privacy Policies |
+| **Advertisers and Sponsors**    | **UR10**: Advertising Features (**URD.md**, Section 1.10)             | **SRS4.5**: Advertisers and Sponsors Features                         | **4.4.1 Marketing Design**: Ad Integration Framework, Analytics (**Design.md**, Section 4.4.1) | Ad Campaign Management                                       | Campaign Testing: Ad Performance, Targeting Accuracy |
+
