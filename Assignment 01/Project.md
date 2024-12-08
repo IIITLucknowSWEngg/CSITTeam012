@@ -1,8 +1,8 @@
-# BookMyShow Clone Project
+# BookMyShow Project
 
 ## Project Overview:
 
-**BookMyShow Clone** is a comprehensive event booking platform that offers users the ability to discover, book, and interact with events such as movies, concerts, sports, and theater performances. It provides an intuitive interface for both end-users (viewers) and event organizers. The platform facilitates a smooth user experience from registration, discovering events, selecting seats, completing secure transactions, and receiving personalized notifications. It also features powerful analytics tools for event organizers to manage and monitor their events in real-time.
+**BookMyShow** is a comprehensive event booking platform that offers users the ability to discover, book, and interact with events such as movies, concerts, sports, and theater performances. It provides an intuitive interface for both end-users (viewers) and event organizers. The platform facilitates a smooth user experience from registration, discovering events, selecting seats, completing secure transactions, and receiving personalized notifications. It also features powerful analytics tools for event organizers to manage and monitor their events in real-time.
 
 ---
 

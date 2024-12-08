@@ -10,8 +10,8 @@ rectangle "Payment Gateway" as PaymentGateway
 rectangle "Email/SMS Notification Service" as NotificationService
 database "Database Server" as Database
 
-' System Boundary: BookMyShow Clone
-package "BookMyShow Clone Application" {
+' System Boundary: BookMyShow
+package "BookMyShow Application" {
 
     ' Subsystems
     rectangle "User Registration \nand Authentication" as Registration

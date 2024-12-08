@@ -1,4 +1,4 @@
-# Software Design Description (SDD) for BookMyShow Clone
+# Software Design Description (SDD) for BookMyShow
 
 ---
 
@@ -6,13 +6,13 @@
 
 ### 1.1 Purpose
 
-This **Software Design Description (SDD)** outlines the design for a **BookMyShow Clone**, an online ticket booking platform. The document describes the architecture, components, interfaces, and their interactions, ensuring the system meets functional and non-functional requirements.
+This **Software Design Description (SDD)** outlines the design for a **BookMyShow**, an online ticket booking platform. The document describes the architecture, components, interfaces, and their interactions, ensuring the system meets functional and non-functional requirements.
 
 ---
 
 ### 1.2 Scope
 
-The BookMyShow clone system enables users to:
+The BookMyShow system enables users to:
 
 - **Browse** events, movies, and shows.
 - **Book tickets** and manage bookings.
@@ -54,7 +54,7 @@ The design adheres to the following principles:
 
 ### 2.1 Architecture Overview
 
-The **BookMyShow Clone** employs a distributed, microservices-based architecture comprising the following layers:
+The **BookMyShow** employs a distributed, microservices-based architecture comprising the following layers:
 
 ---
 
@@ -637,7 +637,7 @@ UC_CancelBooking <. UC_BookTickets : "Extends"
 ```plantuml
 @startuml
 !theme plain
-title BookMyShow Clone - Frontend Architecture
+title BookMyShow - Frontend Architecture
 
 package "Frontend Application" {
     ' Core Architecture Layers
@@ -848,7 +848,7 @@ package "Backend System Architecture" {
 
 ```
 
-# BookMyShow Clone System Design
+# BookMyShow System Design
 
 ---
 
@@ -1011,9 +1011,9 @@ package "Backend System Architecture" {
 
 ## 5. Database Design
 
-## Database Design for BookMyShow Clone
+## Database Design for BookMyShow
 
-The BookMyShow clone uses a combination of SQL and NoSQL databases. Below is the schema for major entities:
+The BookMyShow uses a combination of SQL and NoSQL databases. Below is the schema for major entities:
 
 - **Users**: Stores user information like username, email, and preferences.
 - **Events**: Stores event details, such as name, date, venue, and ticket availability.
@@ -1187,7 +1187,7 @@ This diagram represents the flow of notifications for events like new comments o
 
 ```plantuml
 @startuml
-title Notification Flow for BookMyShow Clone
+title Notification Flow for BookMyShow
 
 actor "User" as User
 actor "System" as System
@@ -1298,7 +1298,7 @@ System --> TicketCancellation : Trigger Cancellation Alerts
 
 ## 8. Conclusion
 
-This comprehensive **Software Design Description** provides a thorough blueprint for a robust, scalable, and user-centric ticket booking platform. By leveraging modern architectural principles, microservices design, and advanced technologies, the **BookMyShow Clone** is engineered to:
+This comprehensive **Software Design Description** provides a thorough blueprint for a robust, scalable, and user-centric ticket booking platform. By leveraging modern architectural principles, microservices design, and advanced technologies, the **BookMyShow** is engineered to:
 
 - Handle massive concurrent user loads during peak traffic times.
 - Provide seamless and responsive user experiences across web and mobile platforms.
@@ -1306,7 +1306,7 @@ This comprehensive **Software Design Description** provides a thorough blueprint
 - Maintain stringent **security** and **privacy** standards for user data.
 - Support future technological innovations such as **real-time streaming**, **personalized recommendations**, and **dynamic pricing**.
 
-The modular design allows for independent scaling of components, while strategic integration with external services enables efficient content delivery, user engagement, and analytics. The platform is not just a clone but a sophisticated, adaptable solution capable of competing in the dynamic entertainment and ticket booking market.
+The modular design allows for independent scaling of components, while strategic integration with external services enables efficient content delivery, user engagement, and analytics. The platform is not just a but a sophisticated, adaptable solution capable of competing in the dynamic entertainment and ticket booking market.
 
 ### Key Differentiators include:
 

@@ -1,6 +1,6 @@
 # AI Usage Documentation
 
-This document outlines how AI systems were utilized during the development of the **Book My Show Clone** project, detailing the prompts used to gather ideas, resolve challenges, and streamline various aspects of software development.
+This document outlines how AI systems were utilized during the development of the **BookMyShow** project, detailing the prompts used to gather ideas, resolve challenges, and streamline various aspects of software development.
 
 ---
 

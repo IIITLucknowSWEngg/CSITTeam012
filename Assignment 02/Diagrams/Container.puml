@@ -15,8 +15,8 @@ actor "User (Customer)" as User
 actor "Admin" as Admin
 actor "Event Organizer" as EventOrganizer
 
-' System Boundary: BookMyShow Clone
-package "BookMyShow Clone System" {
+' System Boundary: BookMyShow
+package "BookMyShow System" {
 
     ' Web Application
     rectangle "Web Application" as WebApp <<backend>> {

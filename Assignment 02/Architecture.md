@@ -23,8 +23,8 @@ rectangle "Payment Gateway" as PaymentGateway
 rectangle "Email/SMS Notification Service" as NotificationService
 database "Database Server" as Database
 
-' System Boundary: BookMyShow Clone
-package "BookMyShow Clone Application" {
+' System Boundary: BookMyShow
+package "BookMyShow Application" {
 
     ' Subsystems
     rectangle "User Registration \nand Authentication" as Registration
@@ -87,8 +87,8 @@ actor "User (Customer)" as User
 actor "Admin" as Admin
 actor "Event Organizer" as EventOrganizer
 
-' System Boundary: BookMyShow Clone
-package "BookMyShow Clone System" {
+' System Boundary: BookMyShow
+package "BookMyShow System" {
 
     ' Web Application
     rectangle "Web Application" as WebApp <<backend>> {

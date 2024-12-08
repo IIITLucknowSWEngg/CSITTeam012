@@ -1,4 +1,4 @@
-# Software Requirements Specification (SRS) for BookMyShow Clone
+# Software Requirements Specification (SRS) for BookMyShow
 
 ## Version: 1.0  
 Prepared by: CSITTeam012 (Team Octet)  
@@ -51,7 +51,7 @@ Date Created: November 30, 2024
 ## 1. Introduction
 
 ### 1.1 Purpose  
-The purpose of this Software Requirements Specification (SRS) is to outline the functional and non-functional requirements for the BookMyShow Clone application. The goal of this application is to provide users with an online platform to browse, select, and book tickets for movies and events. This document serves as a comprehensive guide for developers, stakeholders, and project managers, ensuring that all expectations are clearly defined and understood.
+The purpose of this Software Requirements Specification (SRS) is to outline the functional and non-functional requirements for the BookMyShow application. The goal of this application is to provide users with an online platform to browse, select, and book tickets for movies and events. This document serves as a comprehensive guide for developers, stakeholders, and project managers, ensuring that all expectations are clearly defined and understood.
 
 ### 1.2 Document Conventions  
 - All inline mathematical expressions will use `$` for LaTeX-style notation.  
@@ -65,7 +65,7 @@ The purpose of this Software Requirements Specification (SRS) is to outline the 
 - **Project Managers**: Sections 1, 2, and 5 provide high-level project details, system scope, and non-functional requirements.
 
 ### 1.4 Product Scope  
-The BookMyShow Clone is a web-based application that allows users to:
+The BookMyShow is a web-based application that allows users to:
 - Browse movies and events.
 - Select movies or events for booking.
 - Choose available seats in a real-time seat map.
@@ -83,7 +83,7 @@ The platform will also feature admin functionalities to manage movie schedules, 
 ## 2. Overall Description
 
 ### 2.1 Product Perspective  
-The BookMyShow Clone is a standalone web application inspired by the BookMyShow platform. The system will operate using the **MERN Stack** (MongoDB, Express.js, ReactJS, Node.js) for the backend and frontend development. The application aims to replicate core functionalities such as ticket booking, event management, and payment integration.
+The BookMyShow is a standalone web application inspired by the BookMyShow platform. The system will operate using the **MERN Stack** (MongoDB, Express.js, ReactJS, Node.js) for the backend and frontend development. The application aims to replicate core functionalities such as ticket booking, event management, and payment integration.
 
 ### 2.2 Product Functions  
 The system will support the following major functionalities:

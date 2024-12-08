@@ -1,7 +1,7 @@
-# BookMyShow Clone Component Documentation
+# BookMyShow Component Documentation
 
 ## Overview
-This document provides an overview of the primary components in the BookMyShow Clone system. Each section outlines the features, functionality, and dependencies of components to ensure a clear understanding of their roles.
+This document provides an overview of the primary components in the BookMyShow system. Each section outlines the features, functionality, and dependencies of components to ensure a clear understanding of their roles.
 
 ---
 
@@ -106,7 +106,7 @@ Infrastructure for efficiently delivering video and event streaming to users.
 ---
 
 ### 5. **External Systems**
-Third-party services and integrations that support BookMyShow Clone's functionality.
+Third-party services and integrations that support BookMyShow's functionality.
 
 #### Components:
 
