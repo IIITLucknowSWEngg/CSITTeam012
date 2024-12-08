@@ -32,7 +32,7 @@ This document serves as a comprehensive **Stakeholder Register** for the **Book 
 | **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       | External      |
 -->
 
-# Stakeholder Register for Book My Show Clone
+# Stakeholder Register Table: (Internal & External)
 
 ## Internal Stakeholders
 
