@@ -1,4 +1,4 @@
-# User Registration Test
+# 1) User Registration Test
 
 ## Feature: User Registration
 
@@ -41,7 +41,7 @@ describe('BookMyShow User Registration', function() {
   });
 });
 ```
-# User Login Test
+# 2) User Login Test
 
 ## Feature: User Login
 
@@ -80,7 +80,7 @@ describe('BookMyShow User Login', function() {
 });
 ```
 
-# Event and Movie Management Test
+# 3) Event and Movie Management Test
 
 ## Feature: Event and Movie Management
 
@@ -142,7 +142,7 @@ describe('BookMyShow Event and Movie Management', function() {
 });
 ```
 
-# Ticket Booking Test
+# 4) Ticket Booking Test
 
 ## Feature: Ticket Booking
 
@@ -189,7 +189,7 @@ describe('BookMyShow Ticket Booking', function() {
 });
 ```
 
-# Payment Processing Test
+# 5) Payment Processing Test
 
 ## Feature: Payment Processing
 
@@ -231,7 +231,7 @@ describe('BookMyShow Payment Processing', function() {
   });
 });
 ```
-# Cancellations and Refunds Test
+# 6) Cancellations and Refunds Test
 
 ## Feature: Cancellations and Refunds
 
@@ -284,7 +284,7 @@ describe('BookMyShow Cancellations and Refunds', function() {
 });
 ```
 
-# User Profile Management Test
+# 7) User Profile Management Test
 
 ## Feature: User Profile Management
 
@@ -331,7 +331,7 @@ describe('BookMyShow User Profile Management', function() {
 });
 ```
 
-# Security Compliance Testing Scenario
+# 8) Security Compliance Testing Scenario
 
 ## Scenario: GDPR Compliance - User Data Deletion
 
@@ -372,7 +372,7 @@ describe('GDPR Compliance: User Data Deletion', () => {
 });
 ```
 
-# Advertisements and Banners Visiblity Testing 
+# 9) Advertisements and Banners Visiblity Testing 
 
 ## Scenario: Ad Display and Performance Tracking
 
@@ -426,7 +426,73 @@ describe('Ad Display and Performance Tracking', () => {
 });
 ```
 
+# 10) Advertisements Accuracy and Delivery Compliance.
 
+## Scenario: Ad Targeting Accuracy and Delivery Compliance
+
+### Description:
+This test ensures that the platform delivers ads to the correct audience based on predefined targeting criteria, such as user demographics, location, or preferences. It also validates that the platform provides accurate delivery reports to advertisers.
+
+### Test Script:
+
+```javascript
+// Import necessary libraries
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../server'); 
+const { expect } = chai;
+
+chai.use(chaiHttp);
+
+describe('Ad Targeting Accuracy and Delivery Compliance', () => {
+    it('should deliver ads to users matching the targeting criteria', (done) => {
+        const userMock = {
+            userId: '12345',
+            demographics: { age: 25, location: 'Lucknow', interests: ['movies', 'music'] }
+        };
+
+        chai.request(server)
+            .post('/api/ads/serve')
+            .send(userMock) 
+            .end((err, res) => {
+                expect(res).to.have.status(200); 
+                expect(res.body).to.have.property('ad').that.includes('adId'); 
+                expect(res.body.ad).to.have.property('targetingCriteria');
+                expect(res.body.ad.targetingCriteria).to.include({ location: 'Lucknow' }); 
+                done();
+            });
+    });
+
+    it('should log ad impressions and provide accurate reporting', (done) => {
+        const adId = 'ad123';
+
+        chai.request(server)
+            .get(`/api/ads/report/${adId}`)
+            .end((err, res) => {
+                expect(res).to.have.status(200); 
+                expect(res.body).to.have.property('impressions').that.is.a('number'); 
+                expect(res.body.impressions).to.be.above(0); 
+                done();
+            });
+    });
+
+    it('should reject ads with invalid targeting parameters', (done) => {
+        const invalidAd = {
+            adId: 'invalid123',
+            targetingCriteria: { age: 'invalidAge', location: 12345 }
+        };
+
+        chai.request(server)
+            .post('/api/ads/validate')
+            .send(invalidAd)
+            .end((err, res) => {
+                expect(res).to.have.status(400); 
+                expect(res.body).to.have.property('error', 'Invalid targeting parameters');
+                done();
+            });
+    });
+});
+```
 
 
 
