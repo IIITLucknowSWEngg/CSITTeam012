@@ -382,10 +382,9 @@ This test ensures that advertisements and sponsor banners are displayed correctl
 ### Chai.js Code :
 
 ```javascript
-// Import necessary libraries
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server'); // Replace with your server file
+const server = require('../server');
 const { expect } = chai;
 
 chai.use(chaiHttp);
