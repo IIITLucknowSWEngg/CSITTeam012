@@ -351,7 +351,7 @@ chai.use(chaiHttp);
 describe('GDPR Compliance: User Data Deletion', () => {
     it('should delete user personal data upon request', (done) => {
         chai.request(server)
-            .delete('/api/users/me') // API endpoint for user data deletion
+            .delete('/api/users/<userName/userId>') 
             .set('Authorization', `Bearer validAuthToken`) 
             .end((err, res) => {
                 expect(res).to.have.status(200); // Expect HTTP 200 for success
