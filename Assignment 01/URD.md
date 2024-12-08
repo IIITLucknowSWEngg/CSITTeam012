@@ -117,17 +117,62 @@ This document outlines the user requirements for the **BookMyShow** platform. It
   - Incomplete or outdated information about user bookings.
   - Delays in processing refunds or ticket modifications.
 
+### **User 8:**
+- **Role**: API Integration Partner  
+- **Scenario**: As a third-party provider, I want seamless integration of my APIs for payment processing and notifications.  
+- **Goals**:
+  1. Ensure smooth and error-free integration of payment gateways like Stripe, Razorpay, or PayPal.  
+  2. Provide reliable notification APIs for transaction updates and ticket confirmations.  
+  3. Enable flexible configurations for multiple API endpoints and testing environments.  
+  4. Monitor API usage statistics to identify bottlenecks or failures.  
+- **Pain Points**:
+  - Lack of comprehensive API documentation for integration.  
+  - Delays in resolving API-related issues during high-traffic events.  
+
 ---
-| **User**       | **Role**          | **Scenario**                                                                                          | **Goals**                                                                                                                                   | **Pain Points**                                                                                         |
-|----------------|-------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **User 1**     | **End User**      | I love going to movies, and I want a seamless way to explore what's playing nearby and quickly book tickets. | - Easily search for movies nearby using location. <br> - Filter by genre, language, or time. <br> - View movie ratings and user reviews before booking. <br> - Select my preferred seat using an interactive seat map. <br> - Save favorite theater for faster bookings. <br> - Get a QR code or e-ticket after completing payment. | - Confusion when seat maps are not responsive or easy to navigate. <br> - Limited payment options or delayed confirmation emails. |
-| **User 2**     | **Event Organizer** | I organize concerts and plays, and I need a platform to list my events and monitor ticket sales.     | - Quickly create events with details like dates, locations, and ticket categories. <br> - Track real-time ticket sales and monitor booking patterns. <br> - Adjust ticket prices dynamically based on demand. <br> - Communicate updates to users, such as event timing or venue changes. <br> - View a dashboard with performance metrics for my events. | - Inability to update event details once tickets are sold. <br> - Poor visibility into ticket sales trends or user feedback. |
-| **User 3**     | **End User**      | I want to plan an outing with my kids and need to book tickets for family-friendly shows.             | - Search specifically for child-friendly events or movies. <br> - Check if venues have family-friendly amenities like kid’s menus or play areas. <br> - Book multiple seats together to ensure the family sits together. <br> - Use discount codes for family packages. <br> - Cancel or modify bookings easily if plans change. | - Difficulty in identifying events suitable for children. <br> - Lack of clarity on refund or cancellation policies. |
-| **User 4**     | **Admin**         | I oversee the platform’s operations and resolve issues faced by users and organizers.                | - Monitor platform traffic and detect any technical issues. <br> - Approve or reject event listings submitted by organizers. <br> - Manage disputes between users and event organizers (e.g., refunds or miscommunications). <br> - Ensure that spam or fraudulent activities are identified and mitigated. <br> - Generate regular performance reports for the platform. | - Limited tools for analyzing platform performance. <br> - Difficulty in resolving disputes without sufficient logs or data. |
-| **User 5**     | **End User**      | I rarely attend events, so I want a simple booking experience without hassle.                        | - Search for events near me without creating an account. <br> - Use a guest checkout option for faster payments. <br> - Save e-tickets directly to my phone without unnecessary notifications. <br> - Easily contact customer support if I encounter issues. | - Forced account creation for bookings. <br> - Overwhelming notifications or promotions after booking. |
-| **User 6**     | **End User**      | I attend many events with friends and need features to plan outings effectively.                     | - Share event details with friends directly through the app. <br> - Check seat availability for group bookings. <br> - Split ticket payments among friends seamlessly. <br> - View personalized recommendations for popular events in my city. | - Limited sharing options for event details. <br> - Difficulty in managing group payments for tickets. |
+
+### **User 9:**
+- **Role**: Regulator  
+- **Scenario**: As a regulatory authority, I want to ensure that the platform complies with data protection and financial transaction regulations.  
+- **Goals**:
+  1. Ensure compliance with GDPR, CCPA, and other regional data protection laws.  
+  2. Verify secure handling of user payment data (e.g., PCI DSS compliance).  
+  3. Require transparent reporting of system breaches or vulnerabilities.  
+  4. Enforce clear user consent mechanisms for data collection and usage.  
+- **Pain Points**:
+  - Insufficient reporting of compliance metrics.  
+  - Delays in addressing regulatory inquiries or audits.  
+
+---
+
+### **User 10:**
+- **Role**: Advertiser and Sponsor  
+- **Scenario**: As an advertiser, I want to promote events or brands effectively on the platform.  
+- **Goals**:
+  1. Access self-service tools for creating and managing ad campaigns.  
+  2. Target users based on demographic data (e.g., age, location, interests).  
+  3. Monitor ad performance metrics like click-through rates (CTR) and conversions.  
+  4. Leverage premium placements for higher visibility (e.g., homepage banners).  
+- **Pain Points**:
+  - Limited ad targeting options and customization features.  
+  - Lack of transparency in campaign performance analytics.
+
+---
+| **User**       | **Role**               | **Scenario**                                                                                          | **Goals**                                                                                                                                   | **Pain Points**                                                                                         |
+|----------------|------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **User 1**     | **End User**           | I love going to movies, and I want a seamless way to explore what's playing nearby and quickly book tickets. | - Easily search for movies nearby using location. <br> - Filter by genre, language, or time. <br> - View movie ratings and user reviews before booking. <br> - Select my preferred seat using an interactive seat map. <br> - Save favorite theater for faster bookings. <br> - Get a QR code or e-ticket after completing payment. | - Confusion when seat maps are not responsive or easy to navigate. <br> - Limited payment options or delayed confirmation emails. |
+| **User 2**     | **Event Organizer**    | I organize concerts and plays, and I need a platform to list my events and monitor ticket sales.     | - Quickly create events with details like dates, locations, and ticket categories. <br> - Track real-time ticket sales and monitor booking patterns. <br> - Adjust ticket prices dynamically based on demand. <br> - Communicate updates to users, such as event timing or venue changes. <br> - View a dashboard with performance metrics for my events. | - Inability to update event details once tickets are sold. <br> - Poor visibility into ticket sales trends or user feedback. |
+| **User 3**     | **End User**           | I want to plan an outing with my kids and need to book tickets for family-friendly shows.             | - Search specifically for child-friendly events or movies. <br> - Check if venues have family-friendly amenities like kid’s menus or play areas. <br> - Book multiple seats together to ensure the family sits together. <br> - Use discount codes for family packages. <br> - Cancel or modify bookings easily if plans change. | - Difficulty in identifying events suitable for children. <br> - Lack of clarity on refund or cancellation policies. |
+| **User 4**     | **Admin**              | I oversee the platform’s operations and resolve issues faced by users and organizers.                | - Monitor platform traffic and detect any technical issues. <br> - Approve or reject event listings submitted by organizers. <br> - Manage disputes between users and event organizers (e.g., refunds or miscommunications). <br> - Ensure that spam or fraudulent activities are identified and mitigated. <br> - Generate regular performance reports for the platform. | - Limited tools for analyzing platform performance. <br> - Difficulty in resolving disputes without sufficient logs or data. |
+| **User 5**     | **End User**           | I rarely attend events, so I want a simple booking experience without hassle.                        | - Search for events near me without creating an account. <br> - Use a guest checkout option for faster payments. <br> - Save e-tickets directly to my phone without unnecessary notifications. <br> - Easily contact customer support if I encounter issues. | - Forced account creation for bookings. <br> - Overwhelming notifications or promotions after booking. |
+| **User 6**     | **End User**           | I attend many events with friends and need features to plan outings effectively.                     | - Share event details with friends directly through the app. <br> - Check seat availability for group bookings. <br> - Split ticket payments among friends seamlessly. <br> - View personalized recommendations for popular events in my city. | - Limited sharing options for event details. <br> - Difficulty in managing group payments for tickets. |
 | **User 7**     | **Customer Support Rep** | I assist users and organizers in resolving booking issues, cancellations, or payment problems.       | - Access a dashboard with user and booking details. <br> - Easily modify or cancel bookings on behalf of users. <br> - View and manage pending refund requests. <br> - Provide prompt responses to common user inquiries. | - Incomplete or outdated information about user bookings. <br> - Delays in processing refunds or ticket modifications. |
+| **User 8**     | **API Integration Partner** | As a third-party provider, I want seamless integration of my APIs for payment processing and notifications. | - Ensure smooth and error-free integration of payment gateways like Stripe, Razorpay, or PayPal. <br> - Provide reliable notification APIs for transaction updates and ticket confirmations. <br> - Enable flexible configurations for multiple API endpoints and testing environments. <br> - Monitor API usage statistics to identify bottlenecks or failures. | - Lack of comprehensive API documentation for integration. <br> - Delays in resolving API-related issues during high-traffic events. |
+| **User 9**     | **Regulator**          | As a regulatory authority, I want to ensure that the platform complies with data protection and financial transaction regulations. | - Ensure compliance with GDPR, CCPA, and other regional data protection laws. <br> - Verify secure handling of user payment data (e.g., PCI DSS compliance). <br> - Require transparent reporting of system breaches or vulnerabilities. <br> - Enforce clear user consent mechanisms for data collection and usage. | - Insufficient reporting of compliance metrics. <br> - Delays in addressing regulatory inquiries or audits. |
+| **User 10**    | **Advertiser and Sponsor** | As an advertiser, I want to promote events or brands effectively on the platform.                   | - Access self-service tools for creating and managing ad campaigns. <br> - Target users based on demographic data (e.g., age, location, interests). <br> - Monitor ad performance metrics like click-through rates (CTR) and conversions. <br> - Leverage premium placements for higher visibility (e.g., homepage banners). | - Limited ad targeting options and customization features. <br> - Lack of transparency in campaign performance analytics. |
 ---
+
+
 
 
 ## 2. Use Cases
@@ -313,3 +358,29 @@ Below are detailed use cases describing how the platform meets user goals.
 
 ---
 
+### **3.9 API Integration Dashboard**
+- **Features**:
+  - Tools to configure and test API endpoints (e.g., sandbox environments for payment gateways).  
+  - Usage monitoring with real-time metrics (e.g., request volume, success rates).  
+  - Alerts for API failures or bottlenecks to enable proactive fixes.  
+  - Comprehensive API documentation and support resources for developers.  
+
+---
+
+### **3.10 Compliance Reporting Interface**
+- **Features**:
+  - Tools to generate compliance reports for GDPR, CCPA, and PCI DSS.  
+  - Logs of user consent for data collection and processing activities.  
+  - Notifications for regulatory inquiries or compliance checks.  
+  - Secure storage and retrieval of audit data.  
+
+---
+
+### **3.11 Advertiser Campaign Management**
+- **Features**:
+  - Self-service tools to create and manage ad campaigns.  
+  - Demographic-based targeting options (e.g., age, location, event type).  
+  - Ad performance analytics with metrics like impressions, CTR, and ROI.  
+  - Options for premium ad placements (e.g., homepage banners or event-specific ads).  
+
+---
