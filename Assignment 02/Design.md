@@ -411,7 +411,10 @@ stop
    - Admin's log monitoring triggers the blocking of abusive users.
 
 Below is the UML abuse case diagram for the BookMyShow platform:
+![image](https://github.com/user-attachments/assets/ba354d24-c2b2-4e58-8304-f380c3e3b93b)
+---
 
+### PlantUML Code
 ```plantuml
 @startuml
 
@@ -500,7 +503,10 @@ This diagram provides a comprehensive view of the platform's operational dynamic
    - **Data Sync Issues** result in **Incorrect Seat Allocation**.
 
 Below is the UML error case diagram for the BookMyShow platform:
+![image](https://github.com/user-attachments/assets/12bd7c42-9f82-408b-a00a-21b73346d65c)
+---
 
+### PlantUML Code
 ```plantuml
 @startuml
 
@@ -574,7 +580,10 @@ UC_DataSyncIssues ..> UC_SeatAllocationError : "Results in"
    - **Apply Discounts** is an optional step when **Book Tickets**.
 
 Below is the UML use case diagram for the BookMyShow platform:
+![image](https://github.com/user-attachments/assets/9226644b-3ea4-4a94-8a33-576934897af3)
+---
 
+### PlantUML Code
 ```plantuml
 @startuml
 
