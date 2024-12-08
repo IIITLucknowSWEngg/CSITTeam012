@@ -1,4 +1,4 @@
-# 1) User Registration Test
+# 1. User Registration Test
 
 ## Feature: User Registration
 
@@ -41,7 +41,7 @@ describe('BookMyShow User Registration', function() {
   });
 });
 ```
-# 2) User Login Test
+# 2. User Login Test
 
 ## Feature: User Login
 
@@ -80,7 +80,7 @@ describe('BookMyShow User Login', function() {
 });
 ```
 
-# 3) Event and Movie Management Test
+# 3. Event and Movie Management Test
 
 ## Feature: Event and Movie Management
 
@@ -142,7 +142,7 @@ describe('BookMyShow Event and Movie Management', function() {
 });
 ```
 
-# 4) Ticket Booking Test
+# 4. Ticket Booking Test
 
 ## Feature: Ticket Booking
 
@@ -189,7 +189,7 @@ describe('BookMyShow Ticket Booking', function() {
 });
 ```
 
-# 5) Payment Processing Test
+# 5. Payment Processing Test
 
 ## Feature: Payment Processing
 
@@ -231,7 +231,7 @@ describe('BookMyShow Payment Processing', function() {
   });
 });
 ```
-# 6) Cancellations and Refunds Test
+# 6. Cancellations and Refunds Test
 
 ## Feature: Cancellations and Refunds
 
@@ -284,7 +284,7 @@ describe('BookMyShow Cancellations and Refunds', function() {
 });
 ```
 
-# 7) User Profile Management Test
+# 7. User Profile Management Test
 
 ## Feature: User Profile Management
 
@@ -331,7 +331,7 @@ describe('BookMyShow User Profile Management', function() {
 });
 ```
 
-# 8) Security Compliance Testing Scenario
+# 8. Security Compliance Testing Scenario
 
 ## Scenario: GDPR Compliance - User Data Deletion
 
@@ -372,7 +372,7 @@ describe('GDPR Compliance: User Data Deletion', () => {
 });
 ```
 
-# 9) Advertisements and Banners Visiblity Testing 
+# 9. Advertisements and Banners Visiblity Testing 
 
 ## Scenario: Ad Display and Performance Tracking
 
@@ -426,7 +426,7 @@ describe('Ad Display and Performance Tracking', () => {
 });
 ```
 
-# 10) Advertisements Accuracy and Delivery Compliance.
+# 10. Advertisements Accuracy and Delivery Compliance.
 
 ## Scenario: Ad Targeting Accuracy and Delivery Compliance
 
