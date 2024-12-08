@@ -21,7 +21,7 @@ This document outlines the user requirements for the **BookMyShow** platform. It
 - **Scenario**: I love going to movies, and I want a seamless way to explore what's playing nearby and quickly book tickets.  
 - **Goals**:
   1. Easily search for movies playing near my location.
-  2. Filter movies based on genre, language, or time.
+  2. Filter movies based on genre (eg. action, adventure, comedy, drama, fantasy, horror, musicals, etc.), language (eg. Hindi, English, Tamil, etc.), or time.
   3. View movie ratings and user reviews before booking.
   4. Select my preferred seat using an interactive seat map.
   5. Save my favorite theater to book faster in the future.
@@ -36,7 +36,7 @@ This document outlines the user requirements for the **BookMyShow** platform. It
 - **Role**: Likely an Event Organizer.
 - **Scenario**: I organize concerts and plays, and I need a platform to list my events and monitor ticket sales.  
 - **Goals**:
-  1. Quickly create events with comprehensive details like dates, locations, and ticket categories.
+  1. Quickly create events with comprehensive details like dates, locations (eg. Kanpur, Delhi, Bangalore, etc.), and ticket categories (eg. Early bird tickets, Group Tickets, etc).
   2. Track real-time ticket sales and monitor booking patterns.
   3. Adjust ticket prices dynamically based on demand.
   4. Easily communicate updates (e.g., event timing or venue changes) to users.
