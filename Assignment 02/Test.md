@@ -1,4 +1,4 @@
-# BookMyShow - User Registration Test
+# User Registration Test
 
 ## Feature: User Registration
 
@@ -41,7 +41,7 @@ describe('BookMyShow User Registration', function() {
   });
 });
 ```
-# BookMyShow - User Login Test
+# User Login Test
 
 ## Feature: User Login
 
@@ -80,7 +80,7 @@ describe('BookMyShow User Login', function() {
 });
 ```
 
-# BookMyShow - Event and Movie Management Test
+# Event and Movie Management Test
 
 ## Feature: Event and Movie Management
 
@@ -142,7 +142,7 @@ describe('BookMyShow Event and Movie Management', function() {
 });
 ```
 
-# BookMyShow - Ticket Booking Test
+# Ticket Booking Test
 
 ## Feature: Ticket Booking
 
@@ -189,7 +189,7 @@ describe('BookMyShow Ticket Booking', function() {
 });
 ```
 
-# BookMyShow - Payment Processing Test
+# Payment Processing Test
 
 ## Feature: Payment Processing
 
@@ -231,7 +231,7 @@ describe('BookMyShow Payment Processing', function() {
   });
 });
 ```
-# BookMyShow - Cancellations and Refunds Test
+# Cancellations and Refunds Test
 
 ## Feature: Cancellations and Refunds
 
@@ -284,7 +284,7 @@ describe('BookMyShow Cancellations and Refunds', function() {
 });
 ```
 
-# BookMyShow - User Profile Management Test
+# User Profile Management Test
 
 ## Feature: User Profile Management
 
@@ -330,5 +330,107 @@ describe('BookMyShow User Profile Management', function() {
   });
 });
 ```
+
+# Security Compliance Testing Scenario
+
+## Scenario: GDPR Compliance - User Data Deletion
+
+### Description:
+This test ensures that users can request the deletion of their personal data as per **GDPR Article 17 (Right to Erasure)**. The platform must process these requests securely and return appropriate responses confirming the deletion.
+
+### Chai.js Code:
+
+```javascript
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../server'); 
+const { expect } = chai;
+
+chai.use(chaiHttp);
+
+describe('GDPR Compliance: User Data Deletion', () => {
+    it('should delete user personal data upon request', (done) => {
+        chai.request(server)
+            .delete('/api/users/me') // API endpoint for user data deletion
+            .set('Authorization', `Bearer validAuthToken`) 
+            .end((err, res) => {
+                expect(res).to.have.status(200); // Expect HTTP 200 for success
+                expect(res.body).to.have.property('message', 'User data deleted successfully');
+                done();
+            });
+    });
+
+    it('should return an error for unauthorized deletion requests', (done) => {
+        chai.request(server)
+            .delete('/api/users/me') // API endpoint for user data deletion
+            .end((err, res) => {
+                expect(res).to.have.status(401); // Expect HTTP 401 for unauthorized
+                expect(res.body).to.have.property('error', 'Unauthorized');
+                done();
+            });
+    });
+});
+```
+
+# Advertisements and Banners Visiblity Testing 
+
+## Scenario: Ad Display and Performance Tracking
+
+### Description:
+This test ensures that advertisements and sponsor banners are displayed correctly on the platform and that their performance (clicks, impressions) is accurately tracked.
+
+### Chai.js Code :
+
+```javascript
+// Import necessary libraries
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../server'); // Replace with your server file
+const { expect } = chai;
+
+chai.use(chaiHttp);
+
+describe('Ad Display and Performance Tracking', () => {
+    it('should display the correct ad banner based on the placement', (done) => {
+        chai.request(server)
+            .get('/api/ads/placement/homepage') {
+            .end((err, res) => {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('adId'); // Ensure adId is returned
+                expect(res.body).to.have.property('imageUrl').that.is.a('string'); 
+                expect(res.body).to.have.property('placement', 'homepage');
+                done();
+            });
+    });
+
+    it('should accurately track ad clicks', (done) => {
+        chai.request(server)
+            .post('/api/ads/click')
+            .send({ adId: 'ad12345', userId: 'user67890' }) 
+            .end((err, res) => {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message', 'Click tracked successfully');
+                done();
+            });
+    });
+
+    it('should return an error for invalid ad click requests', (done) => {
+        chai.request(server)
+            .post('/api/ads/click')
+            .send({ adId: '', userId: 'user67890' }) 
+            .end((err, res) => {
+                expect(res).to.have.status(400);
+                expect(res.body).to.have.property('error', 'Invalid adId');
+                done();
+            });
+    });
+});
+```
+
+
+
+
+
+
 
 
