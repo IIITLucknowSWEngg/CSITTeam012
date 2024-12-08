@@ -329,11 +329,259 @@ stop
 @enduml
 
 ```
+# **3.3 Abuse Case Diagram**
+## **Actors**:
+1. **Competitor Ticket Seller**:  
+   - Affected by practices like forcing exclusive contracts, ticket availability manipulation, and predatory pricing.
+2. **Independent Theater**:  
+   - Pressured into exclusive contracts and unfair terms imposed by the platform.
+3. **Consumer**:  
+   - Impacted by excessive convenience fees, ticket manipulation, and predatory pricing.
+4. **User**:  
+   - Uses the platform to book cinema, show, or event tickets.
+5. **Hacker**:  
+   - Engages in malicious activities like creating fake accounts, performing unauthorized actions, and data theft.
+6. **Admin**:  
+   - Manages the system by monitoring logs and blocking abusive users.
+
+## **Abuse Cases**:
+- **Force Exclusive Contracts**: Imposing exclusivity on theaters.
+- **Charge Excessive Convenience Fees**: Imposing high fees on consumers.
+- **Manipulate Ticket Availability**: Controlling ticket visibility for profit.
+- **Impose Unfair Terms on Small Theaters**: Imposing one-sided conditions on smaller entities.
+- **Engage in Predatory Pricing**: Offering tickets at unsustainable prices to eliminate competition.
+- **Book Cinema/Show/Event Tickets**: Primary legitimate functionality for users.
+- **Create Fake Accounts**: Malicious activity by hackers to exploit the platform.
+- **Perform Unauthorized Actions**: Actions by hackers to disrupt the system or exploit vulnerabilities.
+- **Data Theft**: Malicious extraction of user data by hackers.
+- **Monitor System Logs**: Admin activity to ensure the system's integrity.
+- **Block Abusive Users**: Admin functionality to maintain a safe user environment.
+
+## **Relationships**:
+1. **Competitor**:  
+   - Affected by unethical practices like exclusive contracts, ticket manipulation, and predatory pricing.
+2. **Theater**:  
+   - Pressured to comply with exclusive contracts and unfair terms.
+3. **Consumer**:  
+   - Faces negative impacts due to high fees, manipulated ticket availability, and predatory pricing.
+4. **Admin**:  
+   - Uses system logs to identify and block abusive users.
+5. **Hacker**:  
+   - Creates a chain of malicious activities:
+     - Fake accounts → Unauthorized actions → Data theft.
+6. **Dependencies Between Use Cases**:
+   - Exclusive contracts enable ticket manipulation.
+   - Ticket manipulation supports predatory pricing.
+   - Unfair terms result in high fees.
+   - Admin's log monitoring triggers the blocking of abusive users.
+
+Below is the UML abuse case diagram for the BookMyShow platform:
+
+```plantuml
+@startuml
+
+actor "Competitor Ticket Seller" as Competitor
+actor "Independent Theater" as Theater
+actor "Consumer" as Consumer
+actor User
+actor Hacker
+actor Admin
+
+rectangle "BookMyShow Platform" as System {
+    usecase "Force Exclusive Contracts" as UC_ExclusiveContracts
+    usecase "Charge Excessive Convenience Fees" as UC_HighFees
+    usecase "Manipulate Ticket Availability" as UC_TicketManipulation
+    usecase "Impose Unfair Terms on Small Theaters" as UC_UnfairTerms
+    usecase "Engage in Predatory Pricing" as UC_PredatoryPricing
+    usecase "Book Cinema/Show/Event Tickets" as UC_BookTickets
+    usecase "Create Fake Accounts" as UC_FakeAccounts
+    usecase "Perform Unauthorized Actions" as UC_UnauthorizedActions
+    usecase "Data Theft" as UC_DataTheft
+    usecase "Monitor System Logs" as UC_MonitorLogs
+    usecase "Block Abusive Users" as UC_BlockUsers
+}
+
+Competitor --> UC_ExclusiveContracts : Affected
+Competitor --> UC_TicketManipulation : Affected
+Competitor --> UC_PredatoryPricing : Affected
+
+Theater --> UC_ExclusiveContracts : Pressured
+Theater --> UC_UnfairTerms : Pressured
+
+Consumer --> UC_HighFees : Impacted
+Consumer --> UC_TicketManipulation : Impacted
+Consumer --> UC_PredatoryPricing : Harmed
+
+User --> UC_BookTickets
+Hacker --> UC_FakeAccounts
+Hacker --> UC_UnauthorizedActions
+Hacker --> UC_DataTheft
+Admin --> UC_MonitorLogs
+Admin --> UC_BlockUsers
+
+UC_ExclusiveContracts ..> UC_TicketManipulation : "Enables"
+UC_TicketManipulation ..> UC_PredatoryPricing : "Supports"
+UC_UnfairTerms ..> UC_HighFees : "Results in"
+
+UC_FakeAccounts ..> UC_UnauthorizedActions : "Leads to"
+UC_UnauthorizedActions ..> UC_DataTheft : "May result in"
+UC_MonitorLogs ..> UC_BlockUsers : "Triggers"
+
+@enduml
+```
+
+This diagram provides a comprehensive view of the platform's operational dynamics, highlighting legitimate use cases alongside unethical practices and their impacts on stakeholders.
+
+# **3.4 Error Case Diagram**
+
+## **Actors**:
+1. **User**:  
+   - Encounters issues like booking errors, payment failures, incorrect seat allocations, login failures, and invalid discount codes during their interaction with the platform.
+2. **Theater Manager**:  
+   - Notifies the system about show cancellations and encounters data synchronization issues.
+
+## **Use Cases**:
+- **Booking Error**: Errors encountered during the ticket booking process.
+- **Payment Failure**: Failures during the payment transaction process.
+- **Incorrect Seat Allocation**: Errors in the seating arrangement that affect the user's booking.
+- **Show Cancellation**: Notifications triggered by show cancellations by theater managers.
+- **Server Downtime**: System unavailability that affects user interactions, such as bookings or login attempts.
+- **Data Sync Issues**: Problems in syncing data between the platform and users or theaters.
+- **Account Login Failure**: Failed login attempts due to incorrect credentials or system issues.
+- **Invalid Discount Code**: Errors when users enter an invalid or expired discount code.
+
+## **Relationships**:
+1. **User**:  
+   - Encounters various issues like booking errors, payment failures, incorrect seat allocations, login failures, and invalid discount codes.
+2. **Theater Manager**:  
+   - Notifies the platform about show cancellations and experiences data synchronization issues.
+3. **Dependencies Between Use Cases**:
+   - **Booking Error** may result from **Payment Failure**.
+   - **Booking Error** leads to **Incorrect Seat Allocation**.
+   - **Server Downtime** causes **Booking Error** and **Login Failure**.
+   - **Data Sync Issues** result in **Incorrect Seat Allocation**.
+
+Below is the UML use case diagram for the BookMyShow platform:
+
+```plantuml
+@startuml
+
+actor "User" as User
+actor "Theater Manager" as Manager
+
+rectangle "BookMyShow Platform" as System {
+    usecase "Booking Error" as UC_BookingError
+    usecase "Payment Failure" as UC_PaymentFailure
+    usecase "Incorrect Seat Allocation" as UC_SeatAllocationError
+    usecase "Show Cancellation" as UC_ShowCancellation
+    usecase "Server Downtime" as UC_ServerDowntime
+    usecase "Data Sync Issues" as UC_DataSyncIssues
+    usecase "Account Login Failure" as UC_LoginFailure
+    usecase "Invalid Discount Code" as UC_InvalidDiscountCode
+}
+
+User --> UC_BookingError : Encounters
+User --> UC_PaymentFailure : Encounters
+User --> UC_SeatAllocationError : Affected by
+User --> UC_LoginFailure : Affected by
+User --> UC_InvalidDiscountCode : Encounters
+
+Manager --> UC_ShowCancellation : Notifies
+Manager --> UC_DataSyncIssues : Encounters
+
+UC_BookingError ..> UC_PaymentFailure : "May result from"
+UC_BookingError ..> UC_SeatAllocationError : "Leads to"
+UC_ServerDowntime ..> UC_BookingError : "Causes"
+UC_ServerDowntime ..> UC_LoginFailure : "Causes"
+UC_DataSyncIssues ..> UC_SeatAllocationError : "Results in"
+
+@enduml
+```
+# **3.5 Use Case Diagram**
+
+## **Actors**:
+1. **User**:  
+   - Searches for shows/events, books tickets, makes payments, cancels bookings, provides reviews, and applies discounts or offers.
+2. **Theater Manager**:  
+   - Manages theaters and shows, views sales reports.
+3. **Admin**:  
+   - Monitors system performance and resolves customer queries.
+
+## **Use Cases**:
+- **Search for Shows/Events**: Users search for available shows or events to book.
+- **Book Tickets**: Users select and book tickets for shows or events.
+- **Make Payment**: Users make payment for their bookings.
+- **Cancel Booking**: Users can cancel their bookings.
+- **Provide Reviews/Feedback**: Users can leave reviews or feedback on shows they attended.
+- **Manage Theaters and Shows**: Managers control theater details and schedule shows.
+- **View Sales Reports**: Managers can view sales reports related to theater performances.
+- **Monitor System Performance**: Admin monitors the platform’s system performance for issues.
+- **Apply Discounts or Offers**: Users apply available discounts or offers when booking tickets.
+- **Resolve Customer Queries**: Admin resolves user queries or complaints related to the platform.
+
+## **Relationships**:
+1. **User**:  
+   - Interacts with the system by searching for shows, booking tickets, making payments, canceling bookings, providing reviews, and applying discounts.
+2. **Manager**:  
+   - Manages theaters and shows, views sales reports.
+3. **Admin**:  
+   - Monitors system performance and resolves customer queries.
+4. **Dependencies Between Use Cases**:
+   - **Book Tickets** includes **Make Payment**.
+   - **Cancel Booking** extends **Book Tickets** (since it is done after booking).
+   - **Apply Discounts** is an optional step when **Book Tickets**.
+
+Below is the UML use case diagram for the BookMyShow platform:
+
+```plantuml
+@startuml
+
+actor "User" as User
+actor "Theater Manager" as Manager
+actor "Admin" as Admin
+
+rectangle "BookMyShow Platform" as System {
+    usecase "Search for Shows/Events" as UC_SearchShows
+    usecase "Book Tickets" as UC_BookTickets
+    usecase "Make Payment" as UC_MakePayment
+    usecase "Cancel Booking" as UC_CancelBooking
+    usecase "Provide Reviews/Feedback" as UC_Reviews
+    usecase "Manage Theaters and Shows" as UC_ManageTheaters
+    usecase "View Sales Reports" as UC_SalesReports
+    usecase "Monitor System Performance" as UC_MonitorSystem
+    usecase "Apply Discounts or Offers" as UC_ApplyDiscounts
+    usecase "Resolve Customer Queries" as UC_ResolveQueries
+}
+
+User --> UC_SearchShows
+User --> UC_BookTickets
+User --> UC_MakePayment
+User --> UC_CancelBooking
+User --> UC_Reviews
+User --> UC_ApplyDiscounts
+
+Manager --> UC_ManageTheaters
+Manager --> UC_SalesReports
+
+Admin --> UC_MonitorSystem
+Admin --> UC_ResolveQueries
+
+UC_BookTickets <. UC_ApplyDiscounts : "Optional Step"
+UC_MakePayment <. UC_BookTickets : "Includes"
+UC_CancelBooking <. UC_BookTickets : "Extends"
+
+@enduml
+```
+
+
 ---
+
 ## 4. Module Design
 
 ### 4.1 Frontend Architecture
+
 ![image](https://github.com/user-attachments/assets/0301a54c-8293-475d-8d8d-42539894db38)
+
 ### PlantUML Code
 
 ```plantuml
