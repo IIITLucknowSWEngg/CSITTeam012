@@ -230,6 +230,17 @@ The platform provides tools for advertisers and sponsors to create, manage, and 
 
 ---
 
+# Compatibility Matrix for Browsers and OS
+
+| Platform             | Supported Browsers                                     | Supported Operating Systems                     |
+|----------------------|--------------------------------------------------------|------------------------------------------------|
+| **Web (Desktop)**     | Chrome (version 100 and later), Firefox (version 100 and later), Safari (version 14 and later), Microsoft Edge (version 100 and later) | Windows, macOS, Linux                          |
+| **Web (Mobile)**      | Chrome (version 100 and later), Safari (version 14 and later), Firefox (version 100 and later)  | Android, iOS                                   |
+| **Mobile App (iOS)**  | N/A                                                    | iOS 13.0 or later                              |
+| **Mobile App (Android)** | N/A                                                 | Android 5.0 or later                           |
+
+---
+
 ## 6. Other Requirements
 
 - The system must be deployed and tested on a staging server before production deployment.
