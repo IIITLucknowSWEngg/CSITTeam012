@@ -26,14 +26,11 @@
 ### 5. Personalized Notifications and Alerts:
    - Keep users informed with timely notifications about their bookings, upcoming events, and special offers.
 
-### 6. Loyalty and Reward System:
-   - Reward frequent users with loyalty points and special offers to incentivize repeat bookings and enhance user retention.
-
-### 7. Customer Support and User Satisfaction:
+### 6. Customer Support and User Satisfaction:
    - Offer comprehensive support via FAQs, live chat, and helpdesk options.
    - Implement a user-friendly cancellation and refund process.
 
-### 8. Data-Driven Insights for Admins:
+### 7. Data-Driven Insights for Admins:
    - Provide administrators with analytics tools to track and optimize user activity, sales, and event performance.
 
 ---
