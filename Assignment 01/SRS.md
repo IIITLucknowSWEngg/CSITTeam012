@@ -54,10 +54,8 @@ Date Created: November 30, 2024
 The purpose of this Software Requirements Specification (SRS) is to outline the functional and non-functional requirements for the BookMyShow application. The goal of this application is to provide users with an online platform to browse, select, and book tickets for movies and events. This document serves as a comprehensive guide for developers, stakeholders, and project managers, ensuring that all expectations are clearly defined and understood.
 
 ### 1.2 Document Conventions  
-- All inline mathematical expressions will use `$` for LaTeX-style notation.  
 - Functional requirements are identified using the "REQ-" prefix.  
 - Priorities for each requirement are labeled as **High**, **Medium**, or **Low**.  
-- Code snippets or sample configurations are provided where necessary.
 
 ### 1.3 Intended Audience and Reading Suggestions  
 - **Developers**: Focus on sections 3 and 4, which contain technical implementation details and system feature specifications.
@@ -76,7 +74,7 @@ The platform will also feature admin functionalities to manage movie schedules, 
 ### 1.5 References  
 - IEEE SRS Template by Karl E. Wiegers, 1999.  
 - MERN Stack Documentation (MongoDB, Express, ReactJS, Node.js)  
-- PostgreSQL Documentation
+<!-- - PostgreSQL Documentation -->
 
 ---
 

@@ -18,7 +18,7 @@
 
 ### 3. Secure and Flexible Payment System:
    - Integrate various payment options to cater to different user preferences, ensuring secure transactions.
-   - Offer booking confirmation, digital tickets, and QR code generation for contactless entry.
+   - Offer booking confirmation and digital tickets for contactless entry.
 
 ### 4. Efficient Event Management for Organizers:
    - Provide event organizers with tools to manage, create, and analyze their events, ensuring a smooth experience for both organizers and attendees.
@@ -30,8 +30,6 @@
    - Offer comprehensive support via FAQs, live chat, and helpdesk options.
    - Implement a user-friendly cancellation and refund process.
 
-### 7. Data-Driven Insights for Admins:
-   - Provide administrators with analytics tools to track and optimize user activity, sales, and event performance.
 
 ---
 
@@ -57,7 +55,7 @@
 
 ### 2. Event Discovery and Booking:
 - **Search and Filtering:**
-  - Users can search for events by title, location, date, genre, or venue.
+  - Users can search for events by title (e.g. "Coldplay Concert"), location (e.g. "Lucknow"), date, genre (e.g. "Action, Horror"), or venue (e.g. "Phoenix Palassio").
   - Filters available for event categories (movies, concerts, sports, theater, etc.), language, and availability.
   
 - **Event Recommendations:**
@@ -67,10 +65,6 @@
 - **Event Details:**
   - Detailed event pages with information such as synopsis, date, time, venue, and artist information.
   - Images, trailers, and ratings/reviews for movies or performances.
-  
-- **Interactive Seat Selection:**
-  - Users can view an interactive seating chart for venues.
-  - Ability to select specific seats based on real-time availability (highlighting available, sold-out, or VIP seats).
   
 - **Multiple Booking Options:**
   - Single or group ticket bookings.
@@ -84,14 +78,11 @@
   
 - **Booking Confirmation:**
   - Users receive digital tickets via email/SMS after payment confirmation.
-  - QR codes for contactless entry at events.
   
 - **Payment Security:**
+  - Implemented using third-party payment gateways. 
   - PCI-DSS compliance for payment processing.
   - Support for 3D secure transactions and OTP validation.
-
-- **Transaction History:**
-  - Users can view past bookings, invoices, and downloadable receipts in their profile.
 
 ### 4. Event Management for Organizers:
 - **Organizer Dashboard:**
@@ -111,34 +102,17 @@
 
 ### 5. Notifications and Alerts:
 - **Personalized Notifications:**
-  - Users receive reminders for upcoming events, offers, or promotions.
-  - Notifications for events based on user preferences, location, or previous bookings.
+  - Attendees receive reminders for upcoming events, offers, or promotions.
+  - Notifications for events based on location and/or previous bookings.
   
 - **Ticket Sale Alerts:**
   - Alerts when tickets for a popular event go on sale or are almost sold out.
   
-- **Price Drop Alerts:**
-  - Notifications for users when ticket prices decrease for specific events.
+### 6. Reviews and Ratings:
+- **Attendees' Reviews:**
+  - Attendees can rate and review events, movies, or performances they’ve attended.
 
-### 6. Reviews, Ratings, and Social Sharing:
-- **User Reviews:**
-  - Users can rate and review events, movies, or performances they’ve attended.
-  - Review moderation system to filter inappropriate content.
-  
-- **Social Sharing:**
-  - Users can share their bookings, reviews, and event details on social media platforms.
-  - Integration with Facebook, Twitter, Instagram, and WhatsApp for easy sharing.
-
-### 7. Loyalty Program and Offers:
-- **Loyalty Program:**
-  - Users earn reward points for every booking, which can be redeemed for discounts or exclusive offers.
-  - Special benefits for frequent users such as early access to bookings, premium seats, or complimentary add-ons.
-  
-- **Promo Codes and Offers:**
-  - Users can apply promo codes for discounts during the checkout process.
-  - Special offers for first-time users, festival promotions, and partnerships with banks or digital wallets.
-
-### 8. Customer Support:
+### 7. Customer Support:
 - **Help and Support Center:**
   - Comprehensive FAQ section for users to find answers to common queries.
   - Contact options for support via email, live chat, or phone.
@@ -147,14 +121,14 @@
   - Users can cancel bookings within a specified period, based on the event's refund policy.
   - Automated refund process for eligible cancellations.
 
-### 9. Multi-Device Support:
+### 8. Multi-Device Support:
 - **Responsive Web and Mobile Apps:**
-  - The platform is accessible via a responsive website and dedicated apps for Android and iOS devices.
+  - The platform is accessible via a responsive website and dedicated apps for mobile devices.
   
 - **Multi-Platform Sync:**
-  - User data is synchronized across devices (mobile, desktop, and tablet) for seamless access to bookings and preferences.
+  - User data is synchronized across devices (mobile and desktop) for seamless access to bookings and preferences.
 
-### 10. Analytics and Reporting (Admin Panel):
+### 9. Analytics and Reporting (Admin Panel):
 - **Admin Dashboard:**
   - Comprehensive dashboard for platform administrators to monitor user activity, event bookings, and revenue reports.
   

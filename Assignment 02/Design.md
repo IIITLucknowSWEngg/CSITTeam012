@@ -81,7 +81,7 @@ The **BookMyShow** employs a distributed, microservices-based architecture compr
 - **Primary Database**: PostgreSQL for structured data (users, bookings).
 - **Caching**: Redis for faster queries (e.g., seat availability).
 - **Search Engine**: Elasticsearch for event/movie search and filtering.
-- **File Storage**: Cloud storage for banners, event details, and invoices.
+- **File Storage**: MySQL for banners, event details, and invoices.
 
 ---
 

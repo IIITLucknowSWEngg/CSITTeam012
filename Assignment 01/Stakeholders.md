@@ -32,7 +32,20 @@ This document serves as a comprehensive **Stakeholder Register** for the **BookM
 | **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       | External      |
 -->
 
-# Stakeholder Register Table: (Internal & External)
+# Stakeholder Register Table: (External & Internal)
+
+---
+
+## External Stakeholders
+
+| **Stakeholder**                | **Role**                                                                      | **Responsibilities**                                                                                            | **Influence** | **Interest** |
+|--------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------------|--------------|
+| **API Integration Partners**    | Integrate third-party systems with the platform.                             | Manage API integration, maintain updates, ensure reliable communication.                                       | Medium        | Medium       |
+| **Attendees**                  | End-users who book tickets for events.                                       | Use platform to search and book tickets, provide feedback, participate in surveys.                             | Medium        | High         |
+| **Event Organizers** | Provide and manage events listed on the platform.                       | List events, manage bookings, coordinate promotions.                                                           | High          | High         |
+| **Regulators**                 | Ensure compliance with legal and regulatory requirements.                    | Monitor compliance with data privacy laws, oversee financial regulations.                                       | High          | Medium       |
+| **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       |
+
 
 ## Internal Stakeholders
 
@@ -47,24 +60,63 @@ This document serves as a comprehensive **Stakeholder Register** for the **BookM
 | **Cybersecurity Team**         | Ensure platform and data security.                                           | Implement security measures, monitor vulnerabilities, ensure compliance with regulations.                      | High          | Medium       |
 | **System Architects**          | Design high-level architecture of the platform.                               | Ensure scalability, select technologies, define best practices.                                               | High          | Medium       |
 | **Customer Support Team**      | Provide technical support to users.                                          | Troubleshoot issues, escalate complex problems, handle customer complaints.                                    | Medium        | High         |
-| **Market Analysts**            | Analyze market trends to guide strategic decisions.                           | Conduct research, analyze competitor strategies, assist in pricing strategies.                                  | Medium        | High         |
 | **Partnership Managers**       | Build and maintain relationships with external partners.                      | Manage partnerships, negotiate contracts, foster long-term relationships.                                      | Medium        | High         |
 | **Marketing and Growth Team**  | Promote the platform and attract new users.                                   | Run digital campaigns, monitor metrics, analyze marketing strategies.                                          | High          | High         |
 | **Legal and Compliance Team**  | Ensure platform compliance with laws and regulations.                         | Review contracts, ensure adherence to laws, handle legal disputes.                                            | High          | Medium       |
 | **Accessibility Team**         | Ensure platform accessibility for all users.                                  | Implement accessibility features, ensure compliance with guidelines, test for barriers.                        | Medium        | High         |
-| **Data Privacy Officer**       | Oversee handling of user data and compliance with privacy laws.              | Ensure compliance with data laws, handle user requests, conduct audits.                                       | High          | Medium       |
 
 ---
 
 ## External Stakeholders
 
-| **Stakeholder**                | **Role**                                                                      | **Responsibilities**                                                                                            | **Influence** | **Interest** |
-|--------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------------|--------------|
-| **API Integration Partners**    | Integrate third-party systems with the platform.                             | Manage API integration, maintain updates, ensure reliable communication.                                       | Medium        | Medium       |
-| **Customers**                  | End-users who book tickets for events.                                       | Use platform to search and book tickets, provide feedback, participate in surveys.                             | Medium        | High         |
-| **Event Organizers and Venue Owners** | Provide and manage events listed on the platform.                       | List events, manage bookings, coordinate promotions.                                                           | High          | High         |
-| **Regulators**                 | Ensure compliance with legal and regulatory requirements.                    | Monitor compliance with data privacy laws, oversee financial regulations.                                       | High          | Medium       |
-| **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       |
+### 1. API Integration Partners
+- **Role:** Integrate third-party systems with the platform (e.g., payment gateways, maps).
+- **Responsibilities:**
+  - Manage API integration for third-party services.
+  - Maintain and update integrations as needed.
+  - Ensure smooth and reliable communication between external systems and the platform.
+- **Influence:** Medium
+- **Interest:** Medium
+- **Category:** External
+
+### 2. Attendees
+- **Role:** End-users who book tickets for movies, events, and other entertainment options.
+- **Responsibilities:**
+  - Use the platform to search for and book tickets.
+  - Provide reviews for specific events.
+- **Influence:** Medium
+- **Interest:** High
+- **Category:** External
+
+### 3. Event Organizers
+- **Role:** Provide and manage events listed on the platform.
+- **Responsibilities:**
+  - List events and manage bookings.
+  - Coordinate with the platform on event promotions and ticket sales.
+  - Ensure event details are accurate and up to date.
+- **Influence:** High
+- **Interest:** High
+- **Category:** External
+
+### 4. Regulators
+- **Role:** Ensure the platform complies with legal and regulatory requirements.
+- **Responsibilities:**
+  - Monitor the platform's compliance with data privacy laws (e.g., GDPR, CCPA).
+  - Oversee adherence to financial regulations, including payment processing.
+  - Ensure the platform follows consumer protection laws and standards.
+- **Influence:** High
+- **Interest:** Medium
+- **Category:** External
+
+### 5. Advertisers and Sponsors
+- **Role:** Promote their products and services on the platform.
+- **Responsibilities:**
+  - Advertise on the platform to reach the target audience.
+  - Collaborate on sponsorship deals for events.
+  - Provide promotional materials and assets for campaigns.
+- **Influence:** Medium
+- **Interest:** Medium
+- **Category:** External
 
 ---
 
@@ -209,70 +261,6 @@ This document serves as a comprehensive **Stakeholder Register** for the **BookM
 - **Influence:** Medium
 - **Interest:** High
 - **Category:** Internal
-
-### 15. Data Privacy Officer
-- **Role:** Oversee the handling of user data and compliance with data privacy laws.
-- **Responsibilities:**
-  - Ensure compliance with data privacy laws like GDPR and CCPA.
-  - Handle user requests related to data rights (e.g., data deletion, data export).
-  - Conduct regular audits of data handling procedures.
-- **Influence:** High
-- **Interest:** Medium
-- **Category:** Internal
-
----
-
-## External Stakeholders
-
-### 1. API Integration Partners
-- **Role:** Integrate third-party systems with the platform (e.g., payment gateways, cinemas).
-- **Responsibilities:**
-  - Manage API integration for third-party services.
-  - Maintain and update integrations as needed.
-  - Ensure smooth and reliable communication between external systems and the platform.
-- **Influence:** Medium
-- **Interest:** Medium
-- **Category:** External
-
-### 2. Customers
-- **Role:** End-users who book tickets for movies, events, and other entertainment options.
-- **Responsibilities:**
-  - Use the platform to search for and book tickets.
-  - Provide feedback and report issues to improve the platform.
-  - Participate in surveys and testing to enhance the user experience.
-- **Influence:** Medium
-- **Interest:** High
-- **Category:** External
-
-### 3. Event Organizers and Venue Owners
-- **Role:** Provide and manage events listed on the platform.
-- **Responsibilities:**
-  - List events and manage bookings.
-  - Coordinate with the platform on event promotions and ticket sales.
-  - Ensure event details are accurate and up to date.
-- **Influence:** High
-- **Interest:** High
-- **Category:** External
-
-### 4. Regulators
-- **Role:** Ensure the platform complies with legal and regulatory requirements.
-- **Responsibilities:**
-  - Monitor the platform's compliance with data privacy laws (e.g., GDPR, CCPA).
-  - Oversee adherence to financial regulations, including payment processing.
-  - Ensure the platform follows consumer protection laws and standards.
-- **Influence:** High
-- **Interest:** Medium
-- **Category:** External
-
-### 5. Advertisers and Sponsors
-- **Role:** Promote their products and services on the platform.
-- **Responsibilities:**
-  - Advertise on the platform to reach the target audience.
-  - Collaborate on sponsorship deals for events.
-  - Provide promotional materials and assets for campaigns.
-- **Influence:** Medium
-- **Interest:** Medium
-- **Category:** External
 
 --------
 ## Conclusion
