@@ -74,7 +74,7 @@ The platform will also feature admin functionalities to manage movie schedules, 
 ### 1.5 References  
 - IEEE SRS Template by Karl E. Wiegers, 1999.  
 - MERN Stack Documentation (MongoDB, Express, ReactJS, Node.js)  
-<!-- - PostgreSQL Documentation -->
+- MySQL Documentation
 
 ---
 
@@ -86,8 +86,8 @@ The BookMyShow is a standalone web application inspired by the BookMyShow platfo
 ### 2.2 Product Functions  
 The system will support the following major functionalities:
 1. **User Registration and Login**: Users must be able to register and log in with their credentials.
-2. **Event Browsing**: Users can browse upcoming movies and events.
-3. **Seat Booking**: Users can select seats in a real-time seat map for movie or event bookings.
+2. **Event Browsing**: Attendees can browse upcoming movies and events.
+3. **Seat Booking**: Attendees can select seats in a real-time seat map for movie or event bookings.
 4. **Payment Processing**: Secure online payment options for ticket purchases.
 5. **Admin Panel**: Admin users can manage movie schedules, user queries, and ticket sales.
 
