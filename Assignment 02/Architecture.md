@@ -14,12 +14,12 @@ This document contains all the diagrams and their respective PlantUML code for t
 @startuml
 
 ' External Actors
-actor "User (Customer)" as User
+actor "Attendee" as Attendee
 actor "Admin" as Admin
-actor "Event Organizers" as EventOrganizer
+actor "Event Organizer" as EventOrganizer
 
 ' External Systems
-rectangle "Payment Gateway" as PaymentGateway
+rectangle "PCI-DSS Compliant Payment Gateway" as PaymentGateway
 rectangle "Email/SMS Notification Service" as NotificationService
 database "Database Server" as Database
 
@@ -38,18 +38,18 @@ package "BookMyShow Application" {
 }
 
 ' Relationships between actors and system components
-User --> Registration : Sign Up/Login
-User --> EventBrowsing : Browse Events
-User --> SeatBooking : Book Tickets
-User --> PaymentProcessing : Pay for Tickets
-User --> Notifications : Receive Notifications
-User --> UserProfile : Update Profile
+Attendee --> Registration : Sign Up/Login
+Attendee --> EventBrowsing : Browse Events
+Attendee --> SeatBooking : Book Tickets
+Attendee --> PaymentProcessing : Pay for Tickets
+Attendee --> Notifications : Receive Digital Tickets/Updates
+Attendee --> UserProfile : Manage Profile
 
 Admin --> AdminPanel : Manage Users, Events, and Bookings
-Admin --> EventManagement : Create/Modify/Delete Events
+Admin --> EventManagement : Approve/Modify/Delete Events
 Admin --> Notifications : Send Promotional Notifications
 
-EventOrganizer --> EventManagement : Submit/Update Event Details
+EventOrganizer --> EventManagement : Create/Update Event Details
 
 ' External System Interactions
 EventManagement --> Database : Store Event Information
@@ -57,8 +57,8 @@ SeatBooking --> Database : Update Seat Availability
 Registration --> Database : Manage User Accounts
 UserProfile --> Database : Retrieve/Update User Data
 
-PaymentProcessing --> PaymentGateway : Process Transactions
-Notifications --> NotificationService : Send Emails/SMS
+PaymentProcessing --> PaymentGateway : Secure Payment Processing
+Notifications --> NotificationService : Send Emails/SMS for Digital Tickets
 
 @enduml
 ```
@@ -83,7 +83,7 @@ skinparam component {
 }
 
 ' External Users
-actor "User (Customer)" as User
+actor "Attendee" as Attendee
 actor "Admin" as Admin
 actor "Event Organizer" as EventOrganizer
 
@@ -93,7 +93,7 @@ package "BookMyShow System" {
     ' Web Application
     rectangle "Web Application" as WebApp <<backend>> {
         component "Frontend (React)" as WebFrontend <<frontend>>
-        component "Backend (Spring Boot)" as WebBackend <<backend>>
+        component "Backend (Node.js + Express)" as WebBackend <<backend>>
     }
 
     ' Mobile Application
@@ -124,8 +124,8 @@ package "External Services" <<external>> {
 }
 
 ' Relationships and Data Flow
-User --> WebFrontend : "Access Website"
-User --> MobileFrontend : "Use Mobile App"
+Attendee --> WebFrontend : "Access Website"
+Attendee --> MobileFrontend : "Use Mobile App"
 WebFrontend --> WebBackend : "API Calls"
 MobileFrontend --> MobileBackend : "API Calls"
 
@@ -178,7 +178,7 @@ skinparam component {
 }
 
 ' External Users
-actor "User (Customer)" as User
+actor "Attendee" as User
 actor "Admin" as Admin
 actor "Event Organizer" as Organizer
 
@@ -223,7 +223,7 @@ package "Microservices" <<service>> {
         [Session Management]
         [Password Recovery]
     }
-    component "Event Service" as EventService <<service>> {
+    component "Event Management Service" as EventService <<service>> {
         [Event Creation]
         [Event Listing]
         [Event Search]
@@ -324,7 +324,7 @@ skinparam component {
 }
 
 ' External Actors
-actor "User" as User
+actor "Attendee" as Attendee
 actor "Admin" as Admin
 actor "Event Organizer" as Organizer
 
@@ -336,13 +336,13 @@ node "Client Devices" <<client>> {
 
 ' Load Balancer
 node "Load Balancer" <<server>> {
-    component "HTTP Routing" as HTTPRouting
+    component "AWS Elastic Load Balancer" as ELB
 }
 
 ' Application Servers
 node "Application Server Cluster" <<server>> {
-    component "Web Backend" as WebBackend
-    component "Mobile Backend" as MobileBackend
+    component "Web Backend (Node.js with Express)" as WebBackend
+    component "Mobile Backend (Node.js with Express)" as MobileBackend
     node "Microservices Server" <<server>> {
         component "Authentication Service" as AuthService
         component "Event Service" as EventService
@@ -352,10 +352,21 @@ node "Application Server Cluster" <<server>> {
     }
 }
 
+' Caching Layer
+node "Caching Layer" <<server>> {
+    component "Redis Cache" as Redis
+}
+
+' Asynchronous Processing
+node "Asynchronous Processing" <<server>> {
+    component "Task Queue (AWS SQS)" as TaskQueue
+    component "Message Queue (RabbitMQ)" as RabbitMQ
+}
+
 ' Databases
 node "Database Cluster" <<db>> {
-    database "Relational DB (MySQL)" as RelationalDB <<db>>
-    database "NoSQL DB (MongoDB)" as NoSQLDB <<db>>
+    database "Relational DB (MySQL with Read Replicas)" as RelationalDB <<db>>
+    database "NoSQL DB (MongoDB with Sharding)" as NoSQLDB <<db>>
 }
 
 ' External Services
@@ -364,31 +375,50 @@ node "External Services" <<external>> {
     component "Email/SMS Service" as EmailService
 }
 
+' Cloud Platform
+cloud "Cloud Infrastructure (AWS, GCP, Azure)" as Cloud {
+    RelationalDB -down-> NoSQLDB : "Auto-scaling & Sharding"
+    ELB -down-> WebBackend : "Horizontal Scaling"
+    ELB -down-> MobileBackend : "Horizontal Scaling"
+}
+
 ' Relationships
-User --> WebBrowser : "Access Website"
-User --> MobileApp : "Use Mobile App"
+Attendee --> WebBrowser : "Access Website"
+Attendee --> MobileApp : "Use Mobile App"
 Admin --> WebBrowser : "Manage Events/Users"
 Organizer --> WebBrowser : "Create Events"
 
-WebBrowser --> HTTPRouting : "API Requests"
-MobileApp --> HTTPRouting : "API Requests"
+WebBrowser --> ELB : "API Requests"
+MobileApp --> ELB : "API Requests"
 
-HTTPRouting --> WebBackend : "Route to Web Backend"
-HTTPRouting --> MobileBackend : "Route to Mobile Backend"
+ELB --> WebBackend : "Route to Web Backend"
+ELB --> MobileBackend : "Route to Mobile Backend"
 
+WebBackend --> Redis : "Fetch Cached Data"
 WebBackend --> AuthService : "Authenticate User"
 WebBackend --> EventService : "Manage Events"
+WebBackend --> SeatService : "Manage Seat Operations"
 WebBackend --> PaymentService : "Initiate Payment"
+WebBackend --> NotificationService : "Trigger Notifications"
 
+MobileBackend --> Redis : "Fetch Cached Data"
 MobileBackend --> AuthService : "Authenticate User"
 MobileBackend --> EventService : "Manage Events"
+MobileBackend --> SeatService : "Manage Seat Operations"
 MobileBackend --> PaymentService : "Initiate Payment"
+MobileBackend --> NotificationService : "Trigger Notifications"
 
 AuthService --> RelationalDB : "User Data Queries"
 EventService --> RelationalDB : "Event Data Queries"
 SeatService --> RelationalDB : "Booking Data Queries"
 PaymentService --> PaymentGateway : "Process Payments"
 NotificationService --> EmailService : "Send Notifications"
+
+TaskQueue --> NotificationService : "Background Notifications"
+TaskQueue --> PaymentService : "Process Payments Asynchronously"
+TaskQueue --> SeatService : "Background Seat Updates"
+
+RabbitMQ --> NotificationService : "Queue Notifications"
 
 @enduml
 ```
