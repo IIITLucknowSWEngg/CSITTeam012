@@ -1,4 +1,4 @@
-# BookMyShow Project Competitor
+# BookMyShow Competitor Project 
 
 ## Project Overview:
 
