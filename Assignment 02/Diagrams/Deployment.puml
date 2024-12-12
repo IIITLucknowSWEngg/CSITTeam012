@@ -9,7 +9,7 @@ skinparam component {
 }
 
 ' External Actors
-actor "User" as User
+actor "Attendee" as Attendee
 actor "Admin" as Admin
 actor "Event Organizer" as Organizer
 
@@ -21,13 +21,13 @@ node "Client Devices" <<client>> {
 
 ' Load Balancer
 node "Load Balancer" <<server>> {
-    component "HTTP Routing" as HTTPRouting
+    component "AWS Elastic Load Balancer" as ELB
 }
 
 ' Application Servers
 node "Application Server Cluster" <<server>> {
-    component "Web Backend" as WebBackend
-    component "Mobile Backend" as MobileBackend
+    component "Web Backend (Node.js with Express)" as WebBackend
+    component "Mobile Backend (Node.js with Express)" as MobileBackend
     node "Microservices Server" <<server>> {
         component "Authentication Service" as AuthService
         component "Event Service" as EventService
@@ -37,10 +37,21 @@ node "Application Server Cluster" <<server>> {
     }
 }
 
+' Caching Layer
+node "Caching Layer" <<server>> {
+    component "Redis Cache" as Redis
+}
+
+' Asynchronous Processing
+node "Asynchronous Processing" <<server>> {
+    component "Task Queue (AWS SQS)" as TaskQueue
+    component "Message Queue (RabbitMQ)" as RabbitMQ
+}
+
 ' Databases
 node "Database Cluster" <<db>> {
-    database "Relational DB (MySQL)" as RelationalDB <<db>>
-    database "NoSQL DB (MongoDB)" as NoSQLDB <<db>>
+    database "Relational DB (MySQL with Read Replicas)" as RelationalDB <<db>>
+    database "NoSQL DB (MongoDB with Sharding)" as NoSQLDB <<db>>
 }
 
 ' External Services
@@ -49,30 +60,49 @@ node "External Services" <<external>> {
     component "Email/SMS Service" as EmailService
 }
 
+' Cloud Platform
+cloud "Cloud Infrastructure (AWS, GCP, Azure)" as Cloud {
+    RelationalDB -down-> NoSQLDB : "Auto-scaling & Sharding"
+    ELB -down-> WebBackend : "Horizontal Scaling"
+    ELB -down-> MobileBackend : "Horizontal Scaling"
+}
+
 ' Relationships
-User --> WebBrowser : "Access Website"
-User --> MobileApp : "Use Mobile App"
+Attendee --> WebBrowser : "Access Website"
+Attendee --> MobileApp : "Use Mobile App"
 Admin --> WebBrowser : "Manage Events/Users"
 Organizer --> WebBrowser : "Create Events"
 
-WebBrowser --> HTTPRouting : "API Requests"
-MobileApp --> HTTPRouting : "API Requests"
+WebBrowser --> ELB : "API Requests"
+MobileApp --> ELB : "API Requests"
 
-HTTPRouting --> WebBackend : "Route to Web Backend"
-HTTPRouting --> MobileBackend : "Route to Mobile Backend"
+ELB --> WebBackend : "Route to Web Backend"
+ELB --> MobileBackend : "Route to Mobile Backend"
 
+WebBackend --> Redis : "Fetch Cached Data"
 WebBackend --> AuthService : "Authenticate User"
 WebBackend --> EventService : "Manage Events"
+WebBackend --> SeatService : "Manage Seat Operations"
 WebBackend --> PaymentService : "Initiate Payment"
+WebBackend --> NotificationService : "Trigger Notifications"
 
+MobileBackend --> Redis : "Fetch Cached Data"
 MobileBackend --> AuthService : "Authenticate User"
 MobileBackend --> EventService : "Manage Events"
+MobileBackend --> SeatService : "Manage Seat Operations"
 MobileBackend --> PaymentService : "Initiate Payment"
+MobileBackend --> NotificationService : "Trigger Notifications"
 
 AuthService --> RelationalDB : "User Data Queries"
 EventService --> RelationalDB : "Event Data Queries"
 SeatService --> RelationalDB : "Booking Data Queries"
 PaymentService --> PaymentGateway : "Process Payments"
 NotificationService --> EmailService : "Send Notifications"
+
+TaskQueue --> NotificationService : "Background Notifications"
+TaskQueue --> PaymentService : "Process Payments Asynchronously"
+TaskQueue --> SeatService : "Background Seat Updates"
+
+RabbitMQ --> NotificationService : "Queue Notifications"
 
 @enduml
