@@ -10,7 +10,7 @@ skinparam component {
 }
 
 ' External Users
-actor "User (Customer)" as User
+actor "Attendee" as User
 actor "Admin" as Admin
 actor "Event Organizer" as Organizer
 
@@ -55,7 +55,7 @@ package "Microservices" <<service>> {
         [Session Management]
         [Password Recovery]
     }
-    component "Event Service" as EventService <<service>> {
+    component "Event Management Service" as EventService <<service>> {
         [Event Creation]
         [Event Listing]
         [Event Search]
