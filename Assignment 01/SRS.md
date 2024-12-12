@@ -35,8 +35,7 @@ Date Created: November 30, 2024
    4.1 User Registration and Login  
    4.2 Booking System  
    4.3 Payment Gateway Integration  
-   4.4 Event Management  
-   4.5 Advertisers and Sponsors Features
+   4.4 Event Management
 
 5. **Other Nonfunctional Requirements**  
    5.1 Performance Requirements  
@@ -240,12 +239,6 @@ Admins should be able to create, modify, and delete events, as well as manage mo
 
   **How it will be achieved**:
   - **Data-at-Rest Encryption**: Use AES-256 encryption to securely store sensitive data such as user passwords and payment information in the database. This ensures that any sensitive data is encrypted both in the database and in backup storage.
-  - **Encryption Keys Management**: Use a key management service (e.g., AWS KMS, HashiCorp Vault) to securely store and rotate encryption keys, ensuring that access to sensitive data is tightly controlled.
-
-- Implement **2-factor authentication (2FA)** for admin access.
-
-  **How it will be achieved**:
-  - **2FA Integration**: Utilize third-party services like Authy, Google Authenticator, or AWS Cognito to provide 2FA for admin accounts. Admins will be required to authenticate with both a password and a second factor, such as an OTP or an authenticator app.
 
 ### 5.3 Usability Requirements
 
