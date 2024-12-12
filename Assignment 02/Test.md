@@ -84,7 +84,7 @@ describe('BookMyShow User Login', function() {
 
 ## Feature: Event and Movie Management
 
-### Scenario: User views events and movies, and checks movie schedules
+### Scenario: Attendees views events and movies, and checks movie schedules
 
 #### Description:
 Test the event and movie management functionality to ensure that events and movies are listed, categorized, and scheduled correctly, and that the user can search for events by city or venue.
@@ -93,17 +93,17 @@ Test the event and movie management functionality to ensure that events and movi
 ### Steps:
 
 1. **Given**:  
-   The user is on the event or movie listing page.
+   The attendee is on the event or movie listing page.
 
 2. **When**:  
-   - The user views the event or movie listings.  
-   - The user sorts or filters the events or movies based on category (e.g., genre, language) or venue.  
-   - The user searches for events or movies by city or venue.  
-   - The user checks the movie schedule for available shows and seat availability.
+   - The attendee views the event or movie listings.  
+   - The attendee sorts or filters the events or movies based on category (e.g., genre, language) or venue.  
+   - The attendee searches for events or movies by city or venue.  
+   - The attendee checks the movie schedule for available shows and seat availability.
 
 3. **Then**:  
    - The events or movies should be correctly categorized and sorted.  
-   - The user should receive accurate search results based on the city or venue.  
+   - The attendee should receive accurate search results based on the city or venue.  
    - Movie schedules should be displayed accurately with available seats for the selected showtime.  
    - Expired schedules should not be available for booking.
 
@@ -146,27 +146,27 @@ describe('BookMyShow Event and Movie Management', function() {
 
 ## Feature: Ticket Booking
 
-### Scenario: User books a ticket successfully
+### Scenario: Attendee books a ticket successfully
 
 #### Description:
-Test the ticket booking functionality to ensure users can successfully book tickets for a movie or event and receive a confirmation message.
+Test the ticket booking functionality to ensure attendees can successfully book tickets for a movie or event and receive a confirmation message.
 
 
 ### Steps:
 
 1. **Given**:  
-   - The user is logged in.  
-   - The user is on the ticket booking page.
+   - The attendee is logged in.  
+   - The attendee is on the ticket booking page.
 
 2. **When**:  
-   - The user selects a movie or event.  
-   - The user selects the showtime and seats.  
-   - The user selects a payment method.
+   - The attendee selects a movie or event.  
+   - The attendee selects the showtime and seats.  
+   - The attendee selects a payment method.
 
 3. **Then**:  
    - The ticket should be successfully booked.  
-   - The user sees a confirmation message: `"Ticket booked successfully"`.  
-   - The user is redirected to the booking details page (`/booking-details`).
+   - The attendee sees a confirmation message: `"Ticket booked successfully"`.  
+   - The attendee is redirected to the booking details page (`/booking-details`).
 
 
 ## Chai.js Code:
@@ -193,7 +193,7 @@ describe('BookMyShow Ticket Booking', function() {
 
 ## Feature: Payment Processing
 
-### Scenario: User completes a payment for booking tickets
+### Scenario: Attendee completes a payment for booking tickets
 
 #### Description:
 Test the payment process to ensure users can successfully complete their payments for ticket bookings and receive a payment confirmation.
@@ -203,15 +203,15 @@ Test the payment process to ensure users can successfully complete their payment
 ### Steps:
 
 1. **Given**:  
-   The user has selected tickets and is on the payment page.
+   The attendee has selected tickets and is on the payment page.
 
 2. **When**:  
-   The user selects a payment method and enters valid payment details -: Card Number, Expiry Date, CVV
+   The attendee selects a payment method and enters valid payment details -: Card Number, Expiry Date, CVV
 
 3. **Then**:  
    - The payment should be processed successfully.  
-   - The user receives a confirmation message: `"Payment successful"`.  
-   - The user is redirected to the payment confirmation page (`/payment-confirmation`).
+   - The attendee receives a confirmation message: `"Payment successful"`.  
+   - The attendee is redirected to the payment confirmation page (`/payment-confirmation`).
 
 
 ## Chai.js Code:
@@ -235,7 +235,7 @@ describe('BookMyShow Payment Processing', function() {
 
 ## Feature: Cancellations and Refunds
 
-### Scenario: User cancels a booking and receives a refund
+### Scenario: Attendee cancels a booking and receives a refund
 
 #### Description:
 Test the cancellation and refund process to ensure users are properly refunded based on the cancellation policy, and that the system provides timely notifications.
@@ -244,15 +244,15 @@ Test the cancellation and refund process to ensure users are properly refunded b
 ### Steps:
 
 1. **Given**:  
-   The user has a confirmed ticket booking.
+   The attendee has a confirmed ticket booking.
 
 2. **When**:  
-   - The user decides to cancel the booking.  
-   - The user is informed of the refund amount based on the cancellation time.
+   - The attendee decides to cancel the booking.  
+   - The attendee is informed of the refund amount based on the cancellation time.
 
 3. **Then**:  
    - The refund amount should be correctly calculated according to the cancellation policy.  
-   - The user should receive a notification about the cancellation and refund status.  
+   - The attendee should receive a notification about the cancellation and refund status.  
    - The refund should be processed and reflected in the user’s payment method within the defined timeline.
 
 
@@ -335,10 +335,10 @@ describe('BookMyShow User Profile Management', function() {
 
 ## Feature: Rating and Review System
 
-### Scenario: User submits a rating and review successfully
+### Scenario: Attendee submits a rating and review successfully
 
 #### Description:  
-Test the functionality of the rating and review system to ensure users can submit and view ratings and reviews for movies, events, or shows.
+Test the functionality of the rating and review system to ensure attendees can submit and view ratings and reviews for movies, events, or shows.
 
 ---
 
