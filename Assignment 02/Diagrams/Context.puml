@@ -1,12 +1,12 @@
 @startuml
 
 ' External Actors
-actor "User (Customer)" as User
+actor "Attendee" as Attendee
 actor "Admin" as Admin
-actor "Event Organizers" as EventOrganizer
+actor "Event Organizer" as EventOrganizer
 
 ' External Systems
-rectangle "Payment Gateway" as PaymentGateway
+rectangle "PCI-DSS Compliant Payment Gateway" as PaymentGateway
 rectangle "Email/SMS Notification Service" as NotificationService
 database "Database Server" as Database
 
@@ -25,18 +25,18 @@ package "BookMyShow Application" {
 }
 
 ' Relationships between actors and system components
-User --> Registration : Sign Up/Login
-User --> EventBrowsing : Browse Events
-User --> SeatBooking : Book Tickets
-User --> PaymentProcessing : Pay for Tickets
-User --> Notifications : Receive Notifications
-User --> UserProfile : Update Profile
+Attendee --> Registration : Sign Up/Login
+Attendee --> EventBrowsing : Browse Events
+Attendee --> SeatBooking : Book Tickets
+Attendee --> PaymentProcessing : Pay for Tickets
+Attendee --> Notifications : Receive Digital Tickets/Updates
+Attendee --> UserProfile : Manage Profile
 
 Admin --> AdminPanel : Manage Users, Events, and Bookings
-Admin --> EventManagement : Create/Modify/Delete Events
+Admin --> EventManagement : Approve/Modify/Delete Events
 Admin --> Notifications : Send Promotional Notifications
 
-EventOrganizer --> EventManagement : Submit/Update Event Details
+EventOrganizer --> EventManagement : Create/Update Event Details
 
 ' External System Interactions
 EventManagement --> Database : Store Event Information
@@ -44,7 +44,7 @@ SeatBooking --> Database : Update Seat Availability
 Registration --> Database : Manage User Accounts
 UserProfile --> Database : Retrieve/Update User Data
 
-PaymentProcessing --> PaymentGateway : Process Transactions
-Notifications --> NotificationService : Send Emails/SMS
+PaymentProcessing --> PaymentGateway : Secure Payment Processing
+Notifications --> NotificationService : Send Emails/SMS for Digital Tickets
 
 @enduml
