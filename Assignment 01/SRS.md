@@ -1,4 +1,4 @@
-# Software Requirements Specification (SRS) for BookMyShow
+# Software Requirements Specification (SRS) for BookMyShow Competitor
 
 ## Version: 1.0
 
