@@ -490,7 +490,7 @@ describe('BookMyShow Notification and Alert System', function() {
 ### Scenario 1: Configure and Test API Endpoints
 
 #### Description:  
-Test the tools provided in the dashboard for configuring and testing API endpoints, such as sandbox environments for payment gateways.
+Test the tools provided in the dashboard for configuring and testing API endpoints, such as for payment gateways.
 
 ---
 
@@ -501,7 +501,7 @@ Test the tools provided in the dashboard for configuring and testing API endpoin
 
 2. **When**:  
    - The user navigates to the API configuration section.  
-   - The user enters API credentials and endpoints for the sandbox environment.  
+   - The user enters API credentials and endpoints .
    - The user sends a test request.
 
 3. **Then**:  
