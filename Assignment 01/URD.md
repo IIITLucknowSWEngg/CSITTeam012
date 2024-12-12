@@ -233,7 +233,8 @@ Below are detailed use cases describing how the platform meets user goals.
 1. User views recommended events based on preferences.
 2. Selects an event and proceeds to booking.
 3. Confirms booking and receives confirmation.
-   **Outcome**: The user books an event tailored to their interests.
+
+**Outcome**: The user books an event tailored to their interests.
 
 ---
 
