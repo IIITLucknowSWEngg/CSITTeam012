@@ -338,15 +338,6 @@ Below are detailed use cases describing how the platform meets user goals.
 
 ---
 
-### **3.8 Compliance Reporting Interface**
-
-- **Features**:
-  - Tools to generate compliance reports for GDPR, CCPA, and PCI DSS.
-  - Logs of user consent for data collection and processing activities.
-  - Notifications for regulatory inquiries or compliance checks.
-  - Secure storage and retrieval of audit data.
-
----
 
 <!-- ### **3.11 Advertiser Campaign Management**
 
