@@ -99,7 +99,7 @@ The system will support the following major functionalities:
 2. **Event Browsing**: Attendees can browse upcoming movies and events.
 3. **Seat Booking**: Attendees can select seats in a real-time seat map for movie or event bookings.
 4. **Payment Processing**: Secure online payment options for ticket purchases.
-5. **Admin Panel**: Admin users can manage movie schedules, user queries, and ticket sales.
+5. **Admin Panel**: Admin can manage event schedules, user queries, and ticket sales.
 
 ### 2.3 User Classes and Characteristics
 
