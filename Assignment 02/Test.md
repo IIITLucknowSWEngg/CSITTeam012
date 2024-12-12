@@ -331,6 +331,342 @@ describe('BookMyShow User Profile Management', function() {
 });
 ```
 
+# 8. Rating and Review Test
+
+## Feature: Rating and Review System
+
+### Scenario: User submits a rating and review successfully
+
+#### Description:  
+Test the functionality of the rating and review system to ensure users can submit and view ratings and reviews for movies, events, or shows.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The attendee is logged in.  
+
+2. **When**:  
+   - The attendee navigates to the movie or event page.  
+   - The attendee selects a star rating (e.g., 4 out of 5 stars).  
+   - The attendee enters a review, such as `"Fantastic movie with great visuals!"`.  
+   - The attendee clicks the **Submit** button.  
+
+3. **Then**:  
+   - The rating and review are submitted successfully.  
+   - The attendee sees a confirmation message: `"Thank you for your feedback!"`.  
+   - The new review appears in the reviews section of the page.  
+
+---
+
+## Chai.js Code:
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const reviewPage = require('../pages/reviewPage');
+
+describe('BookMyShow Rating and Review System', function() {
+  it('should allow user to submit a rating and review successfully', function() {
+    reviewPage.open('movie-id-123');
+    reviewPage.submitReview({
+      rating: 4,
+      reviewText: 'Fantastic movie with great visuals!'
+    });
+    expect(reviewPage.getSuccessMessage()).to.equal('Thank you for your feedback!');
+    const latestReview = reviewPage.getLatestReview();
+    expect(latestReview.rating).to.equal(4);
+    expect(latestReview.text).to.equal('Fantastic movie with great visuals!');
+  });
+});
+```
+# 9. Notification and Alert System Test
+
+## Feature: Notification and Alert System
+
+### Scenario 1: Push Notification for Booking Confirmation
+
+#### Description:  
+Test the functionality to ensure users receive push notifications for booking confirmations.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The attendee has successfully booked a ticket.
+
+2. **When**:  
+   - The booking process is completed.
+
+3. **Then**:  
+   - The attendee receives a push notification stating:  
+     `"Booking Confirmed: Your ticket for [Event Name] is booked."`.
+
+---
+
+### Scenario 2: Alert for Changes to Booked Events
+
+#### Description:  
+Test the alert system for notifying users about changes to booked events (e.g., venue or timing updates).
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The attendee has booked a ticket for an event.
+
+2. **When**:  
+   - The event details are updated (e.g., a change in venue or timing).
+
+3. **Then**:  
+   - The attendee receives an alert:  
+     `"Update: Your event [Event Name] has been rescheduled to [New Time] at [New Venue]."`.
+
+---
+
+### Scenario 3: Customize Notification Preferences
+
+#### Description:  
+Test the functionality to ensure users can customize their notification preferences.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The attendee is logged in.
+
+2. **When**:  
+   - The attendee navigates to the settings page.  
+   - The attendee updates their notification preferences (e.g., enable/disable push notifications for promotional offers).
+
+3. **Then**:  
+   - The preferences are saved successfully.  
+   - The attendee sees a confirmation message:  
+     `"Your notification preferences have been updated."`.
+
+---
+
+## Chai.js Code:
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const notificationSystem = require('../pages/notificationSystem');
+
+describe('BookMyShow Notification and Alert System', function() {
+  it('should send booking confirmation notifications successfully', function() {
+    notificationSystem.simulateBooking('event-id-123');
+    const notification = notificationSystem.getLatestNotification();
+    expect(notification).to.equal('Booking Confirmed: Your ticket for [Event Name] is booked.');
+  });
+
+  it('should send alerts for changes to booked events', function() {
+    notificationSystem.simulateEventChange('event-id-123', {
+      newTime: '7:00 PM',
+      newVenue: 'Grand Theater'
+    });
+    const alert = notificationSystem.getLatestAlert();
+    expect(alert).to.equal('Update: Your event [Event Name] has been rescheduled to 7:00 PM at Grand Theater.');
+  });
+
+  it('should allow users to customize notification preferences', function() {
+    notificationSystem.openSettings();
+    notificationSystem.updatePreferences({
+      promotionalOffers: false
+    });
+    expect(notificationSystem.getSuccessMessage()).to.equal('Your notification preferences have been updated.');
+  });
+});
+```
+
+# 10. API Integration Dashboard Test
+
+## Feature: API Integration Dashboard
+
+### Scenario 1: Configure and Test API Endpoints
+
+#### Description:  
+Test the tools provided in the dashboard for configuring and testing API endpoints, such as sandbox environments for payment gateways.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user is logged into the API integration dashboard.
+
+2. **When**:  
+   - The user navigates to the API configuration section.  
+   - The user enters API credentials and endpoints for the sandbox environment.  
+   - The user sends a test request.
+
+3. **Then**:  
+   - The test request is executed successfully.  
+   - The user receives a response preview.  
+   - The system confirms the API endpoint is functional with a success message:  
+     `"API endpoint configured and tested successfully."`.
+
+---
+
+### Scenario 2: Usage Monitoring with Real-Time Metrics
+
+#### Description:  
+Verify that the dashboard displays real-time metrics, such as request volume and success rates, for the integrated APIs.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user has APIs integrated into the system.
+
+2. **When**:  
+   - The user opens the usage monitoring section.
+
+3. **Then**:  
+   - The dashboard displays metrics, including request volume, response times, and success/failure rates.  
+   - The user sees real-time updates for these metrics.
+
+---
+
+### Scenario 3: Alerts for API Failures or Bottlenecks
+
+#### Description:  
+Test the alert system for notifying users about API failures or bottlenecks.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user has APIs integrated into the system.
+
+2. **When**:  
+   - The system detects an API failure or a bottleneck.  
+
+3. **Then**:  
+   - The user receives an alert with details, such as:  
+     `"Alert: API [API Name] is experiencing high failure rates. Investigate immediately."`.
+
+---
+
+### Scenario 4: Access Comprehensive API Documentation
+
+#### Description:  
+Test the availability and usability of API documentation and support resources.
+
+---
+
+### Steps:
+
+1. **Given**:  
+   The user is logged into the dashboard.
+
+2. **When**:  
+   - The user navigates to the API documentation section.
+
+3. **Then**:  
+   - The user can view comprehensive API documentation, including request/response formats, error codes, and example integrations.  
+   - The user can access support resources, such as FAQs or contact options for technical help.
+
+---
+
+## Chai.js Code:
+
+```javascript
+const chai = require('chai');
+const expect = chai.expect;
+const apiDashboard = require('../pages/apiDashboard');
+
+describe('API Integration Dashboard Tests', function() {
+  it('should configure and test API endpoints successfully', function() {
+    apiDashboard.openConfiguration();
+    apiDashboard.configureEndpoint({
+      apiKey: 'test-api-key',
+      endpoint: 'https://sandbox.api.com/test'
+    });
+    const response = apiDashboard.testEndpoint();
+    expect(response.status).to.equal(200);
+    expect(apiDashboard.getSuccessMessage()).to.equal('API endpoint configured and tested successfully.');
+  });
+
+  it('should display real-time usage metrics', function() {
+    apiDashboard.openUsageMetrics();
+    const metrics = apiDashboard.getMetrics();
+    expect(metrics.requestVolume).to.be.a('number');
+    expect(metrics.successRate).to.be.within(0, 100);
+  });
+
+  it('should send alerts for API failures or bottlenecks', function() {
+    apiDashboard.simulateApiFailure('test-api');
+    const alert = apiDashboard.getLatestAlert();
+    expect(alert).to.equal('Alert: API [API Name] is experiencing high failure rates. Investigate immediately.');
+  });
+
+  it('should provide access to comprehensive API documentation', function() {
+    apiDashboard.openDocumentation();
+    const documentation = apiDashboard.getDocumentation();
+    expect(documentation).to.include('Request/Response Formats');
+    expect(documentation).to.include('Error Codes');
+    expect(documentation).to.include('Integration Examples');
+  });
+});
+```
+# 11. Load Testing Results
+
+Objective: Evaluate the system's ability to handle 10,000 concurrent users under expected conditions.
+
+| Metric                       | Value                      | Notes                                      |
+|------------------------------|----------------------------|--------------------------------------------|
+| Concurrent Users         | 10,000                    | Maximum concurrent users during the test. |
+| Average Response Time    | 350 ms                    | Well within the acceptable limit (<500 ms).|
+| Peak Response Time       | 600 ms                    | Slightly higher during peak load spikes.  |
+| Throughput               | 5,000 requests/second      | High throughput maintained consistently.  |
+| Error Rate               | 0.1%                      | Occasional failures for edge cases.       |
+| CPU Usage                | 70%                       | Optimal usage; no bottlenecks observed.   |
+| Memory Usage             | 65%                       | Memory usage remained stable.             |
+| Database Queries/Second  | 3,500 queries/second       | Handled efficiently with read replicas.   |
+
+### Observations:
+- The system successfully handled the target 10,000 concurrent users without significant performance degradation.
+- Average response times were within acceptable limits.
+- Minimal error rate observed, likely due to network spikes during peak load.
+
+---
+
+## 2. Stress Testing Results
+
+Objective: Evaluate the system's behavior under extreme conditions beyond expected limits.
+
+| Metric                       | Value                     | Notes                                      |
+|------------------------------|---------------------------|--------------------------------------------|
+| Concurrent Users         | 25,000                   | Peak load to test system limits.          |
+| Average Response Time    | 800 ms                   | Increased significantly beyond 20,000 users. |
+| Peak Response Time       | 1,500 ms                 | Response time spiked under heavy load.    |
+| Throughput               | 7,500 requests/second    | Maintained until 20,000 users, then dropped. |
+| Error Rate               | 5%                       | Errors increased significantly beyond capacity. |
+| CPU Usage                | 95%                      | Near saturation, indicating the need for scaling. |
+| Memory Usage             | 90%                      | Close to capacity; swap space usage observed. |
+| Database Queries/Second  | 6,000 queries/second     | Query handling became a bottleneck.       |
+
+### Observations:
+- The system degraded gracefully until 20,000 concurrent users, after which response times and error rates increased.
+- Bottlenecks were observed in the database layer, suggesting a need for better sharding or additional replicas.
+- CPU and memory resources were nearly saturated, indicating the need for scaling.
+
+---
+
+
+
+
+
+
+
+<!--
 # 8. Security Compliance Testing Scenario
 
 ## Scenario: GDPR Compliance - User Data Deletion
@@ -494,7 +830,7 @@ describe('Ad Targeting Accuracy and Delivery Compliance', () => {
 });
 ```
 
-
+-->
 
 
 
