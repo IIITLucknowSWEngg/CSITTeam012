@@ -35,8 +35,7 @@ Date Created: November 30, 2024
    4.1 User Registration and Login  
    4.2 Booking System  
    4.3 Payment Gateway Integration  
-   4.4 Event Management  
-   4.5 Advertisers and Sponsors Features
+   4.4 Event Management
 
 5. **Other Nonfunctional Requirements**  
    5.1 Performance Requirements  
