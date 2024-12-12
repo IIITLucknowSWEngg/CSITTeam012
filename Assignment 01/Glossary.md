@@ -1,4 +1,4 @@
-### Glossary for **BookMyShow**
+### Glossary for **BookMyShow Competitor**
 
 This glossary defines all the common terms used in the entire documentation of this project.
 
