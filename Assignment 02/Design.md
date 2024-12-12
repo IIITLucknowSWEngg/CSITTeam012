@@ -321,7 +321,7 @@ Frontend -> "API Gateway": Initiate Payment
 
 ---
 
-## 8. Scalability in System Design
+## 8. Performance and Scalability in System Design
 
 ## Objectives
 The system is designed to handle large-scale user interactions and high traffic scenarios. Scalability ensures smooth user experiences during peak load conditions, such as ticket sales for popular events. Key components to achieve scalability include load balancing, caching, auto-scaling, database sharding, and asynchronous task processing.
