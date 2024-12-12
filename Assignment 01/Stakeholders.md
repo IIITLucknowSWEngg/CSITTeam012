@@ -1,4 +1,4 @@
-# Stakeholder Register for BookMyShow
+# Stakeholder Register for BookMyShow Competitor
 
 ## Introduction
 
