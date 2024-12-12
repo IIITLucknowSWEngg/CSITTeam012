@@ -1,6 +1,5 @@
 @startuml
 
-' Colors for components and packages
 skinparam component {
     BackgroundColor<<frontend>> LightSkyBlue
     BackgroundColor<<backend>> LightSteelBlue
@@ -11,7 +10,7 @@ skinparam component {
 }
 
 ' External Users
-actor "User (Customer)" as User
+actor "Attendee" as Attendee
 actor "Admin" as Admin
 actor "Event Organizer" as EventOrganizer
 
@@ -21,7 +20,7 @@ package "BookMyShow System" {
     ' Web Application
     rectangle "Web Application" as WebApp <<backend>> {
         component "Frontend (React)" as WebFrontend <<frontend>>
-        component "Backend (Spring Boot)" as WebBackend <<backend>>
+        component "Backend (Node.js + Express)" as WebBackend <<backend>>
     }
 
     ' Mobile Application
@@ -52,8 +51,8 @@ package "External Services" <<external>> {
 }
 
 ' Relationships and Data Flow
-User --> WebFrontend : "Access Website"
-User --> MobileFrontend : "Use Mobile App"
+Attendee --> WebFrontend : "Access Website"
+Attendee --> MobileFrontend : "Use Mobile App"
 WebFrontend --> WebBackend : "API Calls"
 MobileFrontend --> MobileBackend : "API Calls"
 
