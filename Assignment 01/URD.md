@@ -1,4 +1,4 @@
-# BookMyShow User Requirements Documentation
+# BookMyShow Competitor User Requirements Documentation
 
 ## Overview
 
