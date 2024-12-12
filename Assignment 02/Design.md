@@ -74,6 +74,7 @@ The system comprises the following components:
   "last_login": Date
 }
 ```
+* password hashed using AES-256 Encryption
 
 ### 4.2 MySQL Schemas
 
@@ -118,10 +119,26 @@ CREATE TABLE Shows (
     price DECIMAL(10, 2),
     pricing_tier ENUM('VIP', 'Premium', 'General') NOT NULL,
     seating_chart JSON,
+    rating DECIMAL(3, 2) DEFAULT 0.00,
+    reviews JSON, -- Stores a JSON array of reviews
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
     FOREIGN KEY (venue_id) REFERENCES Venues(venue_id)
 );
+```
+### **Reviews Table (Event Management Service)**
+
+```sql
+CREATE TABLE Reviews (
+    review_id INT AUTO_INCREMENT PRIMARY KEY,
+    show_id INT NOT NULL, -- Foreign key to the Shows table
+    user_id INT,          -- Optional: Track which user wrote the review
+    review_text TEXT NOT NULL, -- The actual review
+    rating DECIMAL(3, 2), -- Optional: User-specific rating for the show
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (show_id) REFERENCES Shows(show_id)
+);
+
 ```
 
 #### **Bookings Table (Seat Management Service)**
@@ -140,7 +157,7 @@ CREATE TABLE Bookings (
     FOREIGN KEY (show_id) REFERENCES Shows(show_id)
 );
 ```
-*add-ons include parking-passes, food vouchers and merchandise.
+* add-ons include parking-passes, food vouchers and merchandise.
 ### 4.3 RabbitMQ Queue (Notification Service)
 
 - **Queue Name**: `notification_queue`
@@ -304,7 +321,64 @@ Frontend -> "API Gateway": Initiate Payment
 
 ---
 
-## 8. Requirements Traceability Matrix
+## 8. Scalability in System Design
+
+## Objectives
+The system is designed to handle large-scale user interactions and high traffic scenarios. Scalability ensures smooth user experiences during peak load conditions, such as ticket sales for popular events. Key components to achieve scalability include load balancing, caching, auto-scaling, database sharding, and asynchronous task processing.
+
+---
+
+### Components of Scalability
+
+#### 1. **AWS Elastic Load Balancer (ELB)**
+- **Purpose**: Distributes incoming traffic evenly across multiple application server instances.
+- **Implementation**:
+  - Use **Application Load Balancer (ALB)** for HTTP and HTTPS traffic.
+  - Configure health checks to monitor the availability of server instances.
+  - Route traffic based on path or host headers for services like API and static resources.
+
+---
+
+#### 2. **Redis Cache**
+- **Purpose**: Reduces load on the database by caching frequently accessed data, ensuring faster response times.
+- **Implementation**:
+  - Deploy **Amazon ElastiCache for Redis** for a managed caching solution.
+  - Cache frequently requested data, such as event details, seat availability, and user preferences.
+  - Set appropriate TTL (Time-to-Live) values to keep cache updated with fresh data.
+
+---
+
+#### 3. **Auto Scaling**
+- **Purpose**: Dynamically adjust the number of application server instances based on traffic.
+- **Implementation**:
+  - Use **AWS Auto Scaling Groups** to monitor traffic and adjust capacity.
+  - Define scaling policies based on CPU utilization, request count, or other metrics.
+  - Set minimum and maximum instance limits to manage costs and ensure availability.
+
+---
+
+#### 4. **Database Sharding**
+- **Purpose**: Distribute data across multiple database servers to handle high read/write traffic.
+- **Implementation**:
+  - Implement horizontal sharding by splitting the database based on a key (e.g., event ID or user ID).
+  - Use **Amazon RDS** or **Amazon Aurora** for managed relational database services with sharding support.
+  - Monitor and balance shard usage to avoid uneven load distribution.
+
+---
+
+#### 5. **Task Queue for Asynchronous Processing**
+- **Purpose**: Offload non-critical tasks to background workers to keep the application responsive.
+- **Implementation**:
+  - Use a message queue system like **AWS Simple Queue Service (SQS)** or **RabbitMQ**.
+  - Offload tasks such as:
+    - Sending email or SMS notifications.
+    - Generating analytics reports.
+    - Processing media files (e.g., image or video compression).
+  - Deploy worker nodes to process queue messages asynchronously.
+
+---
+
+## 9. Requirements Traceability Matrix
 
 | Requirement ID | Description                          | Design Component(s)      |
 | -------------- | ------------------------------------ | ------------------------ |
@@ -316,7 +390,7 @@ Frontend -> "API Gateway": Initiate Payment
 
 ---
 
-## 9. Appendices
+## 10. Appendices
 
 ### Appendix A: Glossary
 
