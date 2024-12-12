@@ -188,6 +188,7 @@ CREATE TABLE Bookings (
 
 ### 6.1 Sequence Diagram: User Registration Process
 
+![alt text](<Diagrams/User_Registration _Swimlane.svg>)
 
 ```plantuml
 @startuml
@@ -209,6 +210,8 @@ Frontend --> User: Registration Complete
 ```
 ### 6.2 Sequence Diagram: Login Authentication Process
 
+![alt text](<Diagrams/User_Login Swimlane Diagram.svg>)
+
 ```plantuml
 @startuml
 actor User
@@ -226,6 +229,8 @@ Frontend --> User: Redirect to Dashboard
 ```
 
 ### 6.3 Activity Diagram: Attendee Booking Workflow
+
+![alt text](<Diagrams/Activity Diagram.svg>)
 
 ```plantuml
 @startuml
@@ -250,7 +255,9 @@ stop
 @enduml
 ```
 
-### 6.2 Sequence Diagram: Attendee Booking Process
+### 6.4 Sequence Diagram: Attendee Booking Process
+
+![alt text](Diagrams/Swimlane_Diagram_attendee.svg)
 
 ```plantuml
 @startuml
