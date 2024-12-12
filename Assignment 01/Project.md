@@ -58,10 +58,6 @@
   - Users can search for events by title (e.g. "Coldplay Concert"), location (e.g. "Lucknow"), date, genre (e.g. "Action, Horror"), or venue (e.g. "Phoenix Palassio").
   - Filters available for event categories (movies, concerts, sports, theater, etc.), language, and availability.
   
-- **Event Recommendations:**
-  - Personalized event recommendations based on user history, location, and preferences.
-  - Users can see trending events in their city or region.
-  
 - **Event Details:**
   - Detailed event pages with information such as synopsis, date, time, venue, and artist information.
   - Images, trailers, and ratings/reviews for movies or performances.
