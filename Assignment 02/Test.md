@@ -666,9 +666,8 @@ Objective: Evaluate the system's behavior under extreme conditions beyond expect
 
 
 
-<!--
-# 8. Security Compliance Testing Scenario
 
+# 12. Security Compliance Testing Scenario
 ## Scenario: GDPR Compliance - User Data Deletion
 
 ### Description:
@@ -708,6 +707,7 @@ describe('GDPR Compliance: User Data Deletion', () => {
 });
 ```
 
+<!--
 # 9. Advertisements and Banners Visiblity Testing 
 
 ## Scenario: Ad Display and Performance Tracking
