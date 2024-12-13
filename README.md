@@ -3,6 +3,8 @@
 
 **Project Idea**: BookMyShow  
 
+![WhatsApp Image 2024-12-13 at 09 13 41_e923a91e](https://github.com/user-attachments/assets/5b8e7b79-db85-42b9-9b18-ae9c47191a1b)
+
 **Team Members**:
 
 | NAME               | EMAIL ID                         | ROLL NUMBER | BRANCH              | GITHUB ID |
