@@ -2,7 +2,6 @@
 ## Team Name : [Team Octet](https://github.com/IIITLucknowSWEngg/Assignment/issues/7)
 
 **Project Idea**: BookMyShow  
-**Documentation Website:** https://hitarth.me/BMS-SWE-IIITL/
 
 **Team Members**:
 
