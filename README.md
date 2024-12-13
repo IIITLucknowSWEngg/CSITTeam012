@@ -5,7 +5,7 @@
 
 **Team Members**:
 
-| NAME               | EMAIL ID                         | ROLL NUMBER | BRANCH              | GITHUB ID (if applicable) |
+| NAME               | EMAIL ID                         | ROLL NUMBER | BRANCH              | GITHUB ID |
 |--------------------|----------------------------------|-------------|---------------------|---------------------------|
 | Vishal Parida      | vparida39@gmail.com              | LIT2023044  | Information Technology | [vishalparida](https://github.com/vishalparida)                       |
 | Priyanshu Agarwal  | pr.agarwal2005+github@gmail.com  | LIT2023022  | Information Technology | [Priyanshu-2005](https://github.com/Priyanshu-2005)                       |
