@@ -43,9 +43,7 @@ This document serves as a comprehensive **Stakeholder Register** for the **BookM
 | **API Integration Partners**    | Integrate third-party systems with the platform.                             | Manage API integration, maintain updates, ensure reliable communication.                                       | Medium        | Medium       |
 | **Attendees**                  | End-users who book tickets for events.                                       | Use platform to search and book tickets, provide feedback, participate in surveys.                             | Medium        | High         |
 | **Event Organizers** | Provide and manage events listed on the platform.                       | List events, manage bookings, coordinate promotions.                                                           | High          | High         |
-| **Regulators**                 | Ensure compliance with legal and regulatory requirements.                    | Monitor compliance with data privacy laws, oversee financial regulations.                                       | High          | Medium       |
-| **Advertisers and Sponsors**    | Promote products and services on the platform.                              | Advertise to target audience, collaborate on sponsorships, provide promotional materials.                      | Medium        | Medium       |
-
+---
 
 ## Internal Stakeholders
 
@@ -96,26 +94,6 @@ This document serves as a comprehensive **Stakeholder Register** for the **BookM
   - Ensure event details are accurate and up to date.
 - **Influence:** High
 - **Interest:** High
-- **Category:** External
-
-### 4. Regulators
-- **Role:** Ensure the platform complies with legal and regulatory requirements.
-- **Responsibilities:**
-  - Monitor the platform's compliance with data privacy laws (e.g., GDPR, CCPA).
-  - Oversee adherence to financial regulations, including payment processing.
-  - Ensure the platform follows consumer protection laws and standards.
-- **Influence:** High
-- **Interest:** Medium
-- **Category:** External
-
-### 5. Advertisers and Sponsors
-- **Role:** Promote their products and services on the platform.
-- **Responsibilities:**
-  - Advertise on the platform to reach the target audience.
-  - Collaborate on sponsorship deals for events.
-  - Provide promotional materials and assets for campaigns.
-- **Influence:** Medium
-- **Interest:** Medium
 - **Category:** External
 
 ---
