@@ -24,41 +24,21 @@ rectangle "Email/SMS Notification Service" as NotificationService
 database "Database Server" as Database
 
 ' System Boundary: BookMyShow
-package "BookMyShow Application" {
+package "BookMyShow Application" as BookMyShow {
 
-    ' Subsystems
-    rectangle "User Registration \nand Authentication" as Registration
-    rectangle "Event Browsing \nand Discovery" as EventBrowsing
-    rectangle "Seat Booking \nand Availability" as SeatBooking
-    rectangle "Payment Processing" as PaymentProcessing
-    rectangle "Admin Panel" as AdminPanel
-    rectangle "Notifications \nand Alerts" as Notifications
-    rectangle "Event Management" as EventManagement
-    rectangle "User Profile Management" as UserProfile
+    ' Single node representing the entire system
+    rectangle "BookMyShow Platform" as Platform
 }
 
-' Relationships between actors and system components
-Attendee --> Registration : Sign Up/Login
-Attendee --> EventBrowsing : Browse Events
-Attendee --> SeatBooking : Book Tickets
-Attendee --> PaymentProcessing : Pay for Tickets
-Attendee --> Notifications : Receive Digital Tickets/Updates
-Attendee --> UserProfile : Manage Profile
-
-Admin --> AdminPanel : Manage Users, Events, and Bookings
-Admin --> EventManagement : Approve/Modify/Delete Events
-Admin --> Notifications : Send Promotional Notifications
-
-EventOrganizer --> EventManagement : Create/Update Event Details
+' Relationships between actors and the system
+Attendee --> Platform : "Sign Up/Login, Browse Events, Book Tickets, Manage Profile"
+Admin --> Platform : "Manage Users, Events, Bookings, Notifications"
+EventOrganizer --> Platform : "Create/Manage Event Listings"
 
 ' External System Interactions
-EventManagement --> Database : Store Event Information
-SeatBooking --> Database : Update Seat Availability
-Registration --> Database : Manage User Accounts
-UserProfile --> Database : Retrieve/Update User Data
-
-PaymentProcessing --> PaymentGateway : Secure Payment Processing
-Notifications --> NotificationService : Send Emails/SMS for Digital Tickets
+Platform --> PaymentGateway : "Secure Payment Processing"
+Platform --> NotificationService : "Send Notifications (Tickets/Updates)"
+Platform --> Database : "Store/Retrieve Event, Booking, and User Data"
 
 @enduml
 ```
